@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="EN">
+<html lang="en">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -90,6 +90,7 @@
             -webkit-backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.06);
             border-radius: 40px;
+            gap: 12px;
         }
 
         .logo {
@@ -115,6 +116,7 @@
             display: flex;
             flex-wrap: wrap;
             gap: 8px 20px;
+            align-items: center;
         }
         nav a {
             font-size: 1rem;
@@ -127,6 +129,29 @@
         nav a:hover {
             color: var(--text-white);
             border-bottom-color: var(--neon-cyan);
+        }
+
+        /* Language Switcher */
+        .lang-switcher {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 30px;
+            padding: 6px 14px;
+            color: var(--text-soft);
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: 0.25s;
+            font-weight: 500;
+            backdrop-filter: blur(4px);
+        }
+        .lang-switcher:hover {
+            background: rgba(0, 240, 255, 0.1);
+            border-color: var(--neon-cyan);
+            color: #fff;
+        }
+        .lang-switcher option {
+            background: #1a1a2e;
+            color: #f0f0f8;
         }
 
         /* ----- HERO ----- */
@@ -465,6 +490,7 @@
             }
             nav {
                 justify-content: center;
+                flex-wrap: wrap;
             }
             .hero {
                 padding: 40px 20px 36px;
@@ -485,6 +511,10 @@
                 flex-direction: column;
                 text-align: center;
             }
+            .lang-switcher {
+                width: 100%;
+                text-align: center;
+            }
         }
     </style>
 </head>
@@ -495,14 +525,22 @@
         <header>
             <div class="logo">2KAY <span>STUDIO</span></div>
             <nav>
-                <a href="#hero">Home</a>
-                <a href="#projects">Project Repository</a>
-                <a href="#events">Sự Kiện</a>
-                <a href="#lore-gallery">Lore &amp; Gallery</a>
-                <a href="#footer">About Us</a>
+                <a href="#hero" data-key="nav-home">Home</a>
+                <a href="#projects" data-key="nav-projects">Project Repository</a>
+                <a href="#events" data-key="nav-events">Events</a>
+                <a href="#lore-gallery" data-key="nav-lore">Lore &amp; Gallery</a>
+                <a href="#footer" data-key="nav-about">About Us</a>
+                <!-- Language Switcher -->
+                <select class="lang-switcher" id="langSwitcher">
+                    <option value="en">🇬🇧 English</option>
+                    <option value="vi">🇻🇳 Tiếng Việt</option>
+                    <option value="zh">🇨🇳 中文</option>
+                    <option value="ja">🇯🇵 日本語</option>
+                    <option value="ru">🇷🇺 Русский</option>
+                    <option value="es">🇪🇸 Español</option>
+                </select>
             </nav>
         </header>
-
         <!-- ===== HERO ===== -->
         <section id="hero" class="hero glass">
             <h1>Where Universes Reside<br />breaking the silence</h1>
@@ -613,7 +651,7 @@
 
         <!-- ===== LORE & GALLERY ===== -->
         <section id="lore-gallery">
-            <h2 class="section-title">Lore &amp; Thư Viện Ảnh</h2>
+            <h2 class="section-title">Lore &amp; gallery</h2>
             <div class="lore-gallery-wrap">
 
                 <!-- Gallery -->
