@@ -1,1 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shop — 2KAY STUDIO</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div class="container">
+    <header>
+        <div class="logo">2KAYSTUDIO <span>where storytelling and game technology converge.</span></div>
+        <nav>
+            <a href="index.html" data-key="nav-home">Home</a>
+            <a href="projects.html" data-key="nav-projects">Projects</a>
+            <a href="shop.html" data-key="nav-shop">Shop</a>
+            <a href="events.html" data-key="nav-events">Events</a>
+            <a href="lore.html" data-key="nav-lore">Lore</a>
+            <a href="about.html" data-key="nav-about">About</a>
+        </nav>
+        <select class="lang-switcher" id="langSwitcher">
+            <option value="en">🇬🇧 English</option>
+            <option value="vi">🇻🇳 Tiếng Việt</option>
+            <option value="zh">🇨🇳 中文</option>
+            <option value="ja">🇯🇵 日本語</option>
+            <option value="ru">🇷🇺 Русский</option>
+            <option value="es">🇪🇸 Español</option>
+        </select>
+    </header>
 
+    <section id="shop">
+        <h2 class="section-title" data-key="shop-title">Official Shop</h2>
+        <div class="shop-grid">
+            <!-- Sản phẩm mẫu -->
+            <div class="shop-item">
+                <h3>Echo ESP32 Custom Kit</h3>
+                <p data-key="shop-esp-desc">Hardware accessory for developers and creators.</p>
+                <span class="price">$49.99</span>
+                <button class="cta-btn" data-key="shop-buy">Buy Now</button>
+            </div>
+            <div class="shop-item">
+                <h3>Wandering Relics Artbook</h3>
+                <p data-key="shop-artbook-desc">Concept art and behind-the-scenes.</p>
+                <span class="price">$24.99</span>
+                <button class="cta-btn" data-key="shop-buy">Buy Now</button>
+            </div>
+            <!-- Thêm sản phẩm khác... -->
+        </div>
+    </section>
+
+    <footer>
+        <div class="social-links">
+            <a href="https://x.com/2kaystudio">🐦 Twitter/X</a>
+            <a href="#">💬 Discord</a>
+            <a href="https://2kaystudioofficial.itch.io">🎮 Itch.io</a>
+            <a href="www.youtube.com/@2KAY_STUDIO">🕹️ Youtube</a>
+            <a href="https://archiveofourown.org/users/Sam_Anthos/pseuds/Sam_Anthos">📚 AO3</a>
+            <a href="https://www.newgrounds.com/portal/view/1040822">💀 Newgrounds</a>
+            <a href="https://www.indiedb.com/members/2kaystudio">📦 IndieDB</a>
+            <a href="https://gamejolt.com/@2kaystudio">👾 GameJolt</a>
+            <a href="https://www.moddb.com/games/wandering-relics-horror-visual-novel">🛠️ ModDB</a>
+        </div>
+        <div class="copy">
+            © 2026 2KAY STUDIO. All rights reserved.
+        </div>
+    </footer>
+</div>
+
+<script>
+    // Script giống trang chủ (thêm từ điển cho các key shop-*)
+    const shopTranslations = {
+        en: {
+            "shop-title": "Official Shop",
+            "shop-esp-desc": "Hardware accessory for developers and creators.",
+            "shop-artbook-desc": "Concept art and behind-the-scenes.",
+            "shop-buy": "Buy Now"
+        },
+        // ... các ngôn ngữ khác
+    };
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        
+        // ----------------------------------------------------
+        // 1. HỆ THỐNG ĐA NGÔN NGỮ
+        // ----------------------------------------------------
+        const translations = {
+            en: { "nav-home": "Home", "nav-projects": "Projects", "nav-shop": "Shop", "nav-events": "Events", "nav-lore": "Lore", "nav-about": "About Us", "filter-all": "All", "filter-released": "AVAILABLE", "filter-dev": "UNDER DEVELOPMENT" },
+            vi: { "nav-home": "Trang Chủ", "nav-projects": "Dự Án", "nav-shop": "Cửa Hàng", "nav-events": "Sự Kiện", "nav-lore": "Cốt Truyện", "nav-about": "Về Chúng Tôi", "filter-all": "Tất Cả", "filter-released": "ĐÃ PHÁT HÀNH", "filter-dev": "ĐANG PHÁT TRIỂN" },
+            zh: { "nav-home": "首页", "nav-projects": "项目", "nav-shop": "商店", "nav-events": "活动", "nav-lore": "故事", "nav-about": "关于我们", "filter-all": "全部", "filter-released": "现已推出", "filter-dev": "开发中" },
+            ja: { "nav-home": "ホーム", "nav-projects": "プロジェクト", "nav-shop": "ショップ", "nav-events": "イベント", "nav-lore": "ロア", "nav-about": "私たちについて", "filter-all": "すべて", "filter-released": "配信中", "filter-dev": "開発中" },
+            ru: { "nav-home": "Главная", "nav-projects": "Проекты", "nav-shop": "Магазин", "nav-events": "События", "nav-lore": "Лор", "nav-about": "О нас", "filter-all": "Все", "filter-released": "ДОСТУПНО", "filter-dev": "В РАЗРАБОТКЕ" },
+            es: { "nav-home": "Inicio", "nav-projects": "Proyectos", "nav-shop": "Tienda", "nav-events": "Eventos", "nav-lore": "Lore", "nav-about": "Sobre Nosotros", "filter-all": "Todo", "filter-released": "DISPONIBLE", "filter-dev": "EN DESARROLLO" }
+        };
+
+        // Quan trọng: Gắn ID tự động cho thẻ select nếu chưa có
+        let langSelect = document.querySelector('select.language-dropdown') || document.querySelector('select');
+        if(langSelect && !langSelect.id) langSelect.id = 'langSwitcher';
+
+        if(langSelect) {
+            langSelect.addEventListener('change', function(e) {
+                const lang = e.target.value;
+                document.querySelectorAll('[data-key]').forEach(el => {
+                    const key = el.getAttribute('data-key');
+                    if (translations[lang] && translations[lang][key]) {
+                        el.textContent = translations[lang][key];
+                    }
+                });
+            });
+        }
+
+        // ----------------------------------------------------
+        // 2. HỆ THỐNG LỌC DỰ ÁN (FILTER TABS)
+        // ----------------------------------------------------
+        const filterBtns = document.querySelectorAll('.filter-tab');
+        const projects = document.querySelectorAll('.project-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Xóa active cũ, bật active mới
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                // Lọc thẻ dự án
+                const filterValue = btn.getAttribute('data-filter');
+                projects.forEach(card => {
+                    const status = card.getAttribute('data-status');
+                    if (filterValue === 'all' || filterValue === status) {
+                        card.style.display = ''; // Hiện lại
+                    } else {
+                        card.style.display = 'none'; // Giấu đi
+                    }
+                });
+            });
+        });
+    });
+</script>
+</script>
+</body>
+</html>
