@@ -525,11 +525,12 @@
         <header>
             <div class="logo">2KAY <span>STUDIO</span></div>
             <nav>
-                <a href="#hero" data-key="nav-home">Home</a>
-                <a href="#projects" data-key="nav-projects">Project Repository</a>
-                <a href="#events" data-key="nav-events">Events</a>
-                <a href="#lore-gallery" data-key="nav-lore">Lore &amp; Gallery</a>
-                <a href="#footer" data-key="nav-about">About Us</a>
+                 <a href="#home" data-key="nav-home">Home</a>
+                 <a href="#shop" data-key="nav-shop">Shop</a>
+                 <a href="#events" data-key="nav-events">Events</a>
+                 <a href="#lore" data-key="nav-lore">Lore & Gallery</a>
+                 <a href="#about" data-key="nav-about">About Us</a>
+            </nav>
                 <!-- Language Switcher -->
                 <select class="lang-switcher" id="langSwitcher">
                     <option value="en">🇬🇧 English</option>
@@ -542,155 +543,78 @@
             </nav>
         </header>
 
-        <!-- ===== HERO ===== -->
-        <section id="hero" class="hero glass">
-            <h1 data-key="hero-title">Where Universes Reside<br />breaking the silence</h1>
-            <p data-key="hero-desc">
-                2KAYSTUDIO — where storytelling and game technology converge.
-                We craft immersive worlds where every pixel tells a story.
-            </p>
-            <a href="#projects" class="cta-btn" data-key="hero-cta">Step into your gaming world.</a>
-        </section>
-
-        <!-- ===== PROJECT HUB ===== -->
         <section id="projects">
-            <h2 class="section-title" data-key="projects-title">Project Repository</h2>
+    <h2 class="section-title" data-key="projects-title">Shop & Project Repository</h2>
+    
+    <div class="filter-tabs" id="filterTabs">
+        <button class="filter-tab active" data-filter="all" data-key="filter-all">All</button>
+        <button class="filter-tab" data-filter="released" data-key="filter-released">NOW AVAILABLE</button>
+        <button class="filter-tab" data-filter="dev" data-key="filter-dev">UNDER DEVELOPMENT</button>
+    </div>
 
-            <!-- Filter Tabs -->
-            <div class="filter-tabs" id="filterTabs">
-                <button class="filter-tab active" data-filter="all" data-key="filter-all">All</button>
-                <button class="filter-tab" data-filter="released" data-key="filter-released">NOW AVAILABLE</button>
-                <button class="filter-tab" data-filter="dev" data-key="filter-dev">UNDER DEVELOPMENT</button>
+    <div class="projects-grid" id="projectsGrid">
+        
+        <div class="project-card glow-card" data-status="dev" style="border: 1px dashed #ff2d7b; background: rgba(255, 45, 123, 0.02);">
+            <div class="card-title" style="color: #ff2d7b;">2KAY Official Shop</div>
+            <div class="card-meta">
+                <span>Merch</span>
+                <span>Hardware</span>
             </div>
-
-            <!-- Projects Grid -->
-            <div class="projects-grid" id="projectsGrid">
-
-                <!-- Wandering Relics -->
-                <div class="project-card glow-card" data-status="released">
-                    <div class="card-title">Wandering Relics</div>
-                    <div class="card-meta"><span>visual novel</span><span>Adventure</span></div>
-                    <div class="card-desc" data-key="project-desc-1">The love story unfolds in 1935 in the foggy, classically styled city of Mina Drumarsstad.</div>
-                    <span class="card-status status-released" data-key="status-released">DEMO NOW AVAILABLE</span>
-                    <div class="card-link">🔗 <a href="#" data-key="project-link-1">Download for free on various platforms.</a></div>
-                </div>
-
-                <!-- PROJECT 02 -->
-                <div class="project-card glow-card" data-status="released">
-                    <div class="card-title"> PROJECT 02</div>
-                    <div class="card-meta"><span>dating sim</span><span>Visual Novel</span></div>
-                    <div class="card-desc" data-key="project-desc-2">A fateful late-night ride where conversations become salvation or obsession.</div>
-                    <span class="card-status status-released" data-key="status-released">NOW AVAILABLE</span>
-                    <div class="card-link">🔗 <a href="#" data-key="project-link-2">Visit projects</a></div>
-                </div>
-
-                <!-- PROJECT 03 -->
-                <div class="project-card glow-card" data-status="dev">
-                    <div class="card-title"> PROJECT 03</div>
-                    <div class="card-meta"><span>cozy</span><span>RPG</span></div>
-                    <div class="card-desc" data-key="project-desc-3">A new version of the psychological horror dating sim, featuring a deeply branching storyline.</div>
-                    <span class="card-status status-dev" data-key="status-dev">UNDER DEVELOPMENT</span>
-                    <div class="card-link">🔗 <a href="#" data-key="project-link-3">Visit projects</a></div>
-                </div>
-
-                <!-- PROJECT 04 -->
-                <div class="project-card glow-card" data-status="dev">
-                    <div class="card-title">PROJECT 04</div>
-                    <div class="card-meta"><span>visual novel</span><span>Slice of Life</span></div>
-                    <div class="card-desc" data-key="project-desc-4">Heartwarming stories about friendship and the connection between humans and mysterious cats.</div>
-                    <span class="card-status status-dev" data-key="status-dev">UNDER DEVELOPMENT</span>
-                    <div class="card-link">🔗 <a href="#" data-key="project-link-4">Visit projects</a></div>
-                </div>
-
-                <!-- PROJECT 05 -->
-                <div class="project-card glow-card" data-status="dev">
-                    <div class="card-title">PROJECT 05</div>
-                    <div class="card-meta"><span>Casual </span><span>/ Therapeutic</span></div>
-                    <div class="card-desc" data-key="project-desc-5">A gentle care game where you help a little duck overcome sadness and discover small joys.</div>
-                    <span class="card-status status-dev" data-key="status-dev">UNDER DEVELOPMENT</span>
-                    <div class="card-link">🔗 <a href="#" data-key="project-link-5">Visit projects</a></div>
-                </div>
-
-                <!-- PROJECT 06 -->
-                <div class="project-card glow-card" data-status="dev">
-                    <div class="card-title">PROJECT 06</div>
-                    <div class="card-meta"><span>visual novel</span><span> Mythology</span></div>
-                    <div class="card-desc" data-key="project-desc-6">Blending card games with mythology, each match becomes a dialogue with the gods.</div>
-                    <span class="card-status status-dev" data-key="status-dev">UNDER DEVELOPMENT</span>
-                    <div class="card-link">🔗 <a href="#" data-key="project-link-6">Visit projects</a></div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- ===== EVENTS & ANNOUNCEMENTS ===== -->
-        <section id="events">
-            <h2 class="section-title" data-key="events-title">Events &amp; Announcements</h2>
-            <div class="events-grid">
-                <div class="event-item glass">
-                    <div class="event-date">📅 15.10.2026</div>
-                    <h4 data-key="event-title-1">Demo Launch &quot;Wandering Relics&quot;</h4>
-                    <p data-key="event-desc-1">The free demo is now available on Itch.io. Check it out and download it.</p>
-                </div>
-                <div class="event-item glass">
-                    <div class="event-date">🎃 28.10.2026</div>
-                    <h4 data-key="event-title-2">Halloween Week</h4>
-                    <p data-key="event-desc-2">Special event: release of an expansion featuring a new ending and horror content.</p>
-                </div>
-                <div class="event-item glass">
-                    <div class="event-date">📝 05.11.2026</div>
-                    <h4 data-key="event-title-3">Screenwriter Sam's Devlog</h4>
-                    <p data-key="event-desc-3">Sam has posted the free script for the project on AO3. Read it now!</p>
-                </div>
-                <div class="event-item glass">
-                    <div class="event-date">🕹️ 20.11.2026</div>
-                    <h4 data-key="event-title-4">Project Playtest</h4>
-                    <p data-key="event-desc-4">Playtest registration is now open to the community. Join to share your feedback.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- ===== LORE & GALLERY ===== -->
-        <section id="lore-gallery">
-            <h2 class="section-title" data-key="lore-title">Lore &amp; Gallery</h2>
-            <div class="lore-gallery-wrap">
-
-                <!-- Gallery -->
-                <div>
-                    <div class="gallery-grid">
-                        <div class="gallery-item" style="background-image: linear-gradient(135deg, rgba(0,240,255,0.1), rgba(10,10,15,0.7)), url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiB2aWV3Qm94PSIwIDAgMTAwIDEwMCI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0iIzBmMGYxNSIvPjxjaXJjbGUgY3g9IjUwIiBjeT0iNTAiIHI9IjI4IiBmaWxsPSIjMDBmMGZmIiBvcGFjaXR5PSIwLjEyIi8+PC9zdmc+');">
-                            <span data-key="gallery-1">Concept Art</span>
-                        </div>
-                        <div class="gallery-item" style="background-image: linear-gradient(135deg, rgba(255,45,123,0.08), rgba(10,10,15,0.7)), url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiB2aWV3Qm94PSIwIDAgMTAwIDEwMCI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0iIzBmMGYxNSIvPjxjaXJjbGUgY3g9IjUwIiBjeT0iNTAiIHI9IjI4IiBmaWxsPSIjZmYyZDdiIiBvcGFjaXR5PSIwLjEyIi8+PC9zdmc+');">
-                            <span data-key="gallery-2">Cockpit</span>
-                        </div>
-                        <div class="gallery-item" style="background-image: linear-gradient(135deg, rgba(185,103,255,0.1), rgba(10,10,15,0.7)), url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiB2aWV3Qm94PSIwIDAgMTAwIDEwMCI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0iIzBmMGYxNSIvPjxjaXJjbGUgY3g9IjUwIiBjeT0iNTAiIHI9IjI4IiBmaWxsPSIjYjk2N2ZmIiBvcGFjaXR5PSIwLjE1Ii8+PC9zdmc+');">
-                            <span data-key="gallery-3">Sprite</span>
-                        </div>
-                        <div class="gallery-item" style="background-image: linear-gradient(135deg, rgba(0,240,255,0.06), rgba(10,10,15,0.8)), url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiB2aWV3Qm94PSIwIDAgMTAwIDEwMCI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0iIzBmMGYxNSIvPjxjaXJjbGUgY3g9IjUwIiBjeT0iNTAiIHI9IjI4IiBmaWxsPSIjMDBmMGZmIiBvcGFjaXR5PSIwLjA4Ii8+PC9zdmc+');">
-                            <span data-key="gallery-4">Background</span>
-                        </div>
-                       <div class="gallery-item" style="background-image: linear-gradient(135deg, rgba(185, 103, 255, 0.08), rgba(10, 10, 15, 0.8));">
-                    <span data-key="gallery-5">Character</span>
-                </div>
-            </div>
+            <div class="card-desc">Official exclusive merchandise, Echo ESP32 custom hardware accessories, and limited collectibles from our universes.</div>
+            <span class="card-status" style="background: #ff2d7b; color: #fff;">COMING SOON</span>
+            <div class="card-link">🔒 <span>Link Encrypted</span></div>
         </div>
+
+        <div class="project-card glow-card" data-status="released">
+            <div class="card-title">Wandering Relics</div>
+            <div class="card-meta">
+                <span>Visual Novel</span>
+                <span>Adventure</span>
+            </div>
+            <div class="card-desc">The love story unfolds in 1935 in the foggy, classically styled city of Mina Drumarsstad.</div>
+            <span class="card-status status-released">DEMO NOW AVAILABLE</span>
+            <div class="card-link">🔗 <a href="https://itch.io" target="_blank">Download on Itch.io</a></div>
+        </div>
+
+        <div class="project-card glow-card" data-status="dev">
+            <div class="card-title">PROJECT 02</div>
+            <div class="card-meta"><span>Classified</span></div>
+            <div class="card-desc">Under development. Stay tuned for future transmissions.</div>
+            <span class="card-status status-dev">UNDER DEVELOPMENT</span>
+            <div class="card-link">🔒 <span>Encrypted</span></div>
+        </div>
+
+        <div class="project-card glow-card" data-status="dev">
+            <div class="card-title">PROJECT 03</div>
+            <div class="card-meta"><span>Classified</span></div>
+            <div class="card-desc">Under development. Stay tuned for future transmissions.</div>
+            <span class="card-status status-dev">UNDER DEVELOPMENT</span>
+            <div class="card-link">🔒 <span>Encrypted</span></div>
+        </div>
+
+        <div class="project-card glow-card" data-status="dev">
+            <div class="card-title">PROJECT 04</div>
+            <div class="card-meta"><span>Classified</span></div>
+            <div class="card-desc">Under development. Stay tuned for future transmissions.</div>
+            <span class="card-status status-dev">UNDER DEVELOPMENT</span>
+            <div class="card-link">🔒 <span>Encrypted</span></div>
+        </div>
+
+        <div class="project-card glow-card" data-status="dev">
+            <div class="card-title">PROJECT 05</div>
+            <div class="card-meta"><span>Classified</span></div>
+            <div class="card-desc">Under development. Stay tuned for future transmissions.</div>
+            <span class="card-status status-dev">UNDER DEVELOPMENT</span>
+            <div class="card-link">🔒 <span>Encrypted</span></div>
+        </div>
+
+        <div class="project-card glow-card" data-status="dev">
+            <div class="card-title">PROJECT 06</div>
+            <div class="card-meta"><span>Classified</span></div>
+            <div class="card-desc">Under development. Stay tuned for future transmissions.</div>
+            <span class="card-status status-dev">UNDER DEVELOPMENT</span>
+            <div class="card-link">🔒 <span>Encrypted</span></div>
+        </div>
+
     </div>
 </section>
-
-<footer id="footer">
-    <div class="copy">
-        © 2026 2KAY STUDIO. All rights reserved. All works are the intellectual property of the Studio.
-    </div>
-    <div class="social-links">
-        <a href="#">🐦 Twitter/X</a>
-        <a href="#">💬 Discord</a>
-        <a href="#">🎮 Itch.io</a>
-        <a href="#">🕹️ Youtube</a>
-        <a href="#">📚 AO3</a>
-        <a href="#">💀 Newgrounds</a>
-        <a href="#">📦 IndieDB</a>
-        <a href="#">👾 GameJolt</a>
-        <a href="#">🛠️ ModDB</a>
-    </div>
-</footer>
