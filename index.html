@@ -154,14 +154,49 @@
             color: #f0f0f8;
         }
         <!-- ===== HERO ===== -->
-        <section id="hero" class="hero glass">
-            <h1>Where Universes Reside<br />breaking the silence</h1>
-            <p>
-                2KAYSTUDIO—where storytelling and game technology converge.
-                We craft immersive worlds where every pixel tells a story.
-            </p>
-            <a href="#projects" class="cta-btn">Step into your gaming world.</a>
-        </section>
+        /* ----- HERO ----- */
+        .hero {
+            padding: 60px 40px 50px;
+            margin-bottom: 60px;
+            text-align: center;
+            border-radius: var(--radius);
+            background: radial-gradient(circle at 70% 20%, rgba(0, 240, 255, 0.05), transparent 60%),
+                radial-gradient(circle at 30% 80%, rgba(255, 45, 123, 0.04), transparent 50%);
+        }
+        .hero h1 {
+            font-size: clamp(2.8rem, 8vw, 4.6rem);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #fff 30%, var(--neon-cyan), var(--neon-pink));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .hero p {
+            font-size: 1.25rem;
+            max-width: 720px;
+            margin: 0 auto 30px;
+            color: var(--text-soft);
+        }
+        .cta-btn {
+            display: inline-block;
+            padding: 16px 48px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            border-radius: 60px;
+            background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
+            color: #0a0a0f;
+            box-shadow: 0 0 30px rgba(0, 240, 255, 0.25);
+            transition: 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        .cta-btn:hover {
+            transform: scale(1.04);
+            box-shadow: 0 0 50px rgba(0, 240, 255, 0.5);
+            color: #0a0a0f;
+        }
 
         /* ----- SECTION TITLE ----- */
         .section-title {
