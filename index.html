@@ -154,7 +154,6 @@
             color: #f0f0f8;
         }
         <!-- ===== HERO ===== -->
-        /* ----- HERO ----- */
         .hero {
             padding: 60px 40px 50px;
             margin-bottom: 60px;
@@ -526,11 +525,12 @@
             <div class="logo">2KAYSTUDIO 
             <span>where storytelling and game technology converge.</span></div>
             <nav>
-                 <a href="#home" data-key="nav-home">Home</a>
-                 <a href="#shop" data-key="nav-shop">Shop</a>
-                 <a href="#events" data-key="nav-events">Events</a>
-                 <a href="#lore" data-key="nav-lore">Lore & Gallery</a>
-                 <a href="#about" data-key="nav-about">About Us</a>
+                <a href="index.html" data-key="nav-home">Home</a>
+                <a href="projects.html" data-key="nav-projects">Projects</a>
+                <a href="shop.html" data-key="nav-shop">Shop</a>
+                <a href="events.html" data-key="nav-events">Events</a>
+                <a href="lore.html" data-key="nav-lore">Lore</a>
+                <a href="about.html" data-key="nav-about">About</a>
             </nav>
                 <!-- Language Switcher -->
                 <select class="lang-switcher" id="langSwitcher">
@@ -554,18 +554,6 @@
     </div>
 
     <div class="projects-grid" id="projectsGrid">
-        
-        <div class="project-card glow-card" data-status="dev" style="border: 1px dashed #ff2d7b; background: rgba(255, 45, 123, 0.02);">
-            <div class="card-title" style="color: #ff2d7b;">2KAY Official Shop</div>
-            <div class="card-meta">
-                <span>Merch</span>
-                <span>Hardware</span>
-            </div>
-            <div class="card-desc">Official exclusive merchandise, Echo ESP32 custom hardware accessories, and limited collectibles from our universes.</div>
-            <span class="card-status" style="background: #ff2d7b; color: #fff;">COMING SOON</span>
-            <div class="card-link">🔒 <span>Link Encrypted</span></div>
-        </div>
-
         <div class="project-card glow-card" data-status="released">
             <div class="card-title">Wandering Relics</div>
             <div class="card-meta">
@@ -618,7 +606,15 @@
         </div>
 
     </div>
+            <div class="project-card glow-card" data-status="dev">
+            <div class="card-title">PROJECT 07</div>
+            <div class="card-meta"><span>Classified</span></div>
+            <div class="card-desc">Under development. Stay tuned for future transmissions.</div>
+            <span class="card-status status-dev">UNDER DEVELOPMENT</span>
+            <div class="card-link">🔒 <span>Encrypted</span></div>
+        </div>
 </section>
+        
 <footer id="footer">
     <div class="social-links">
         <a href="https://x.com/2kaystudio">🐦 Twitter/X</a>
@@ -635,91 +631,60 @@
         © 2026 2KAY STUDIO. All rights reserved. All works are the intellectual property of the Studio.
     </div>
 </footer>
-        <script>
-    // 1. 2KAY STUDIO's 6-language multilingual dictionary
-    const translations = {
-        en: {
-            "nav-home": "Home",
-            "nav-shop": "Shop",
-            "nav-events": "Events",
-            "nav-lore": "Lore & Gallery",
-            "nav-about": "About Us",
-            "projects-title": "Shop & Project Repository",
-            "filter-all": "All",
-            "filter-released": "NOW AVAILABLE",
-            "filter-dev": "UNDER DEVELOPMENT",
-            "events-title": "Events & Announcements",
-            "lore-title": "The Library & 2KAY LAB"
-        },
-        vi: {
-            "nav-home": "Trang Chủ",
-            "nav-shop": "Cửa Hàng",
-            "nav-events": "Sự Kiện",
-            "nav-lore": "Cốt Truyện & Ảnh",
-            "nav-about": "Về Chúng Tôi",
-            "projects-title": "Cửa Hàng & Kho Dự Án",
-            "filter-all": "Tất Cả",
-            "filter-released": "ĐÃ PHÁT HÀNH",
-            "filter-dev": "ĐANG PHÁT TRIỂN",
-            "events-title": "Sự Kiện & Thông Báo",
-            "lore-title": "Thư Viện & 2KAY LAB"
-        },
-        zh: {
-            "nav-home": "首页",
-            "nav-shop": "商店",
-            "nav-events": "活动",
-            "nav-lore": "故事与画廊",
-            "nav-about": "关于我们",
-            "projects-title": "商店与项目库",
-            "filter-all": "全部",
-            "filter-released": "现已推出",
-            "filter-dev": "开发中",
-            "events-title": "活动与公告",
-            "lore-title": "图书馆与 2KAY 实验室"
-        },
-        ja: {
-            "nav-home": "ホーム",
-            "nav-shop": "ショップ",
-            "nav-events": "イベント",
-            "nav-lore": "ロア＆ギャラリー",
-            "nav-about": "私たちについて",
-            "projects-title": "ショップ＆プロジェクト",
-            "filter-all": "すべて",
-            "filter-released": "配信中",
-            "filter-dev": "開発中",
-            "events-title": "イベント＆お知らせ",
-            "lore-title": "ライブラリ＆2KAY LAB"
-        },
-        ru: {
-            "nav-home": "Главная",
-            "nav-shop": "Магазин",
-            "nav-events": "События",
-            "nav-lore": "Лор и Галерея",
-            "nav-about": "О нас",
-            "projects-title": "Магазин и Проекты",
-            "filter-all": "Все",
-            "filter-released": "ДОСТУПНО",
-            "filter-dev": "В РАЗРАБОТКЕ",
-            "events-title": "События и Анонсы",
-            "lore-title": "Библиотека и 2KAY LAB"
-        },
-        es: {
-            "nav-home": "Inicio",
-            "nav-shop": "Tienda",
-            "nav-events": "Eventos",
-            "nav-lore": "Lore y Galería",
-            "nav-about": "Sobre Nosotros",
-            "projects-title": "Tienda y Proyectos",
-            "filter-all": "Todo",
-            "filter-released": "DISPONIBLE AHORA",
-            "filter-dev": "EN DESARROLLO",
-            "events-title": "Eventos y Anuncios",
-            "lore-title": "La Biblioteca y 2KAY LAB"
-        }
-    };
+     <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        
+        // ----------------------------------------------------
+        // 1. HỆ THỐNG ĐA NGÔN NGỮ
+        // ----------------------------------------------------
+        const translations = {
+            en: { "nav-home": "Home", "nav-projects": "Projects", "nav-shop": "Shop", "nav-events": "Events", "nav-lore": "Lore", "nav-about": "About Us", "filter-all": "All", "filter-released": "AVAILABLE", "filter-dev": "UNDER DEVELOPMENT" },
+            vi: { "nav-home": "Trang Chủ", "nav-projects": "Dự Án", "nav-shop": "Cửa Hàng", "nav-events": "Sự Kiện", "nav-lore": "Cốt Truyện", "nav-about": "Về Chúng Tôi", "filter-all": "Tất Cả", "filter-released": "ĐÃ PHÁT HÀNH", "filter-dev": "ĐANG PHÁT TRIỂN" },
+            zh: { "nav-home": "首页", "nav-projects": "项目", "nav-shop": "商店", "nav-events": "活动", "nav-lore": "故事", "nav-about": "关于我们", "filter-all": "全部", "filter-released": "现已推出", "filter-dev": "开发中" },
+            ja: { "nav-home": "ホーム", "nav-projects": "プロジェクト", "nav-shop": "ショップ", "nav-events": "イベント", "nav-lore": "ロア", "nav-about": "私たちについて", "filter-all": "すべて", "filter-released": "配信中", "filter-dev": "開発中" },
+            ru: { "nav-home": "Главная", "nav-projects": "Проекты", "nav-shop": "Магазин", "nav-events": "События", "nav-lore": "Лор", "nav-about": "О нас", "filter-all": "Все", "filter-released": "ДОСТУПНО", "filter-dev": "В РАЗРАБОТКЕ" },
+            es: { "nav-home": "Inicio", "nav-projects": "Proyectos", "nav-shop": "Tienda", "nav-events": "Eventos", "nav-lore": "Lore", "nav-about": "Sobre Nosotros", "filter-all": "Todo", "filter-released": "DISPONIBLE", "filter-dev": "EN DESARROLLO" }
+        };
 
-    // 2. Listen for the user's language selection action.
-    const langSwitcher = document.getElementById('langSwitcher');
-    
-    if(langSwitcher) {
-        langSwitcher.addEventListener('change', function(e) {
+        // Quan trọng: Gắn ID tự động cho thẻ select nếu chưa có
+        let langSelect = document.querySelector('select.language-dropdown') || document.querySelector('select');
+        if(langSelect && !langSelect.id) langSelect.id = 'langSwitcher';
+
+        if(langSelect) {
+            langSelect.addEventListener('change', function(e) {
+                const lang = e.target.value;
+                document.querySelectorAll('[data-key]').forEach(el => {
+                    const key = el.getAttribute('data-key');
+                    if (translations[lang] && translations[lang][key]) {
+                        el.textContent = translations[lang][key];
+                    }
+                });
+            });
+        }
+
+        // ----------------------------------------------------
+        // 2. HỆ THỐNG LỌC DỰ ÁN (FILTER TABS)
+        // ----------------------------------------------------
+        const filterBtns = document.querySelectorAll('.filter-tab');
+        const projects = document.querySelectorAll('.project-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Xóa active cũ, bật active mới
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                // Lọc thẻ dự án
+                const filterValue = btn.getAttribute('data-filter');
+                projects.forEach(card => {
+                    const status = card.getAttribute('data-status');
+                    if (filterValue === 'all' || filterValue === status) {
+                        card.style.display = ''; // Hiện lại
+                    } else {
+                        card.style.display = 'none'; // Giấu đi
+                    }
+                });
+            });
+        });
+    });
+</script>
