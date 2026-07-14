@@ -3,8 +3,6 @@
   name: github
   repo: bngocchau93-commits/2kay-official
   branch: main
-  # Official Authentication Portal Link:
-  base_url: https://decap-cms-oauth.vercel.app
   
 media_folder: "assets" # Storage location for photos Sam uploads to posts
 public_folder: "assets"
