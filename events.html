@@ -11,14 +11,18 @@
     <header>
             <div class="logo">2KAYSTUDIO 
             <span>where storytelling and game technology converge.</span></div>
+          
             <nav>
                 <a href="index.html" data-key="nav-home">Home</a>
                 <a href="projects.html" data-key="nav-projects">Projects</a>
                 <a href="shop.html" data-key="nav-shop">Shop</a>
                 <a href="events.html" data-key="nav-events">Events</a>
                 <a href="lore.html" data-key="nav-lore">Lore</a>
+                <a href="gallery.html" data-key="nav-gallery">Gallery</a>
+                <a href="lab.html" data-key="nav-lab">2KAY LAB</a>
                 <a href="about.html" data-key="nav-about">About</a>
             </nav>
+        
                 <!-- Language Switcher -->
                 <select class="lang-switcher" id="langSwitcher">
                     <option value="en">🇬🇧 English</option>
@@ -30,29 +34,45 @@
                 </select>
             </nav>
         </header>
-    <section id="events">
-        <h2 class="section-title" data-key="events-title">Events & Announcements</h2>
-        <div class="events-grid">
-            <div class="event-item">
-                <span class="event-date" data-key="event1-date">March 15, 2026</span>
-                <h4 data-key="event1-title">Wandering Relics Demo Live</h4>
-                <p data-key="event1-desc">First public demo available on Itch.io and GameJolt.</p>
+<section id="events" class="section">
+    <div class="container">
+        <h2 class="section-title">Events & Transmissions</h2>
+        
+        <div style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 30px;" class="events-grid-layout">
+            <!-- Left column: Studio Events -->
+            <div class="events-studio">
+                <h3 style="color: #00f0ff; border-bottom: 1px solid rgba(0,240,255,0.2); padding-bottom: 10px;">📢 Studio Events</h3>
+                <div class="events-timeline">
+                    <div class="event-item glass" style="border-left: 2px solid #ff2d7b; padding: 15px; margin-bottom: 15px;">
+                        <div style="color: #ff2d7b; font-size: 0.85rem; font-weight: bold;">🎁 GIVEAWAY</div>
+                        <h4 style="margin: 5px 0;">Community Lucky Draw #1</h4>
+                        <p style="color: #b8b8d0; font-size: 0.9rem;">Stand a chance to win exclusive game keys and VIP Playtester access.</p>
+                    </div>
+                </div>
             </div>
-            <div class="event-item">
-                <span class="event-date" data-key="event2-date">April 2, 2026</span>
-                <h4 data-key="event2-title">Dev Stream: Behind the Art</h4>
-                <p data-key="event2-desc">Join us live on YouTube for an art deep-dive.</p>
+            
+            <!-- Right column: Streamer Schedule-->
+            <div class="events-streamers">
+                <h3 style="color: #b767ff; border-bottom: 1px solid rgba(183,103,255,0.2); padding-bottom: 10px;">🎮 Live Broadcasts</h3>
+                <div class="stream-list">
+                    <div class="stream-item glass" style="border-left: 2px solid #b767ff; padding: 15px; margin-bottom: 15px;">
+                        <div style="color: #b767ff; font-size: 0.85rem; font-weight: bold;">🔴 LIVE NOW / UPCOMING</div>
+                        <h4 style="margin: 5px 0;">Streamer Transmission</h4>
+                        <p style="color: #b8b8d0; font-size: 0.9rem;">Watch content creators brave the mist of Mina Drumarsstad.</p>
+                        <a href="https://twitch.tv" target="_blank" style="color: #b767ff; font-size: 0.85rem; text-decoration: none;">Watch Stream ➔</a>
+                    </div>
+                </div>
             </div>
-            <!-- Thêm sự kiện -->
         </div>
-    </section>
+    </div>
+</section>
 
     <footer id="footer">
     <div class="social-links">
         <a href="https://x.com/2kaystudio">🐦 Twitter/X</a>
         <a href="#">💬 Discord</a>
         <a href="https://2kaystudioofficial.itch.io">🎮 Itch.io</a>
-        <a href="www.youtube.com/@2KAY_STUDIO">🕹️ Youtube</a>
+        <a href="https://www.youtube.com/@2KAY_STUDIO">🕹️ Youtube</a>
         <a href="https://archiveofourown.org/users/Sam_Anthos/pseuds/Sam_Anthos">📚 AO3</a>
         <a href="https://www.newgrounds.com/portal/view/1040822">💀 Newgrounds</a>
         <a href="https://www.indiedb.com/members/2kaystudio">📦 IndieDB</a>
@@ -68,7 +88,7 @@
     document.addEventListener("DOMContentLoaded", function() {
         
         // ----------------------------------------------------
-        // 1. HỆ THỐNG ĐA NGÔN NGỮ
+        // 1. Langs
         // ----------------------------------------------------
         const translations = {
             en: { "nav-home": "Home", "nav-projects": "Projects", "nav-shop": "Shop", "nav-events": "Events", "nav-lore": "Lore", "nav-about": "About Us", "filter-all": "All", "filter-released": "AVAILABLE", "filter-dev": "UNDER DEVELOPMENT" },
@@ -79,7 +99,7 @@
             es: { "nav-home": "Inicio", "nav-projects": "Proyectos", "nav-shop": "Tienda", "nav-events": "Eventos", "nav-lore": "Lore", "nav-about": "Sobre Nosotros", "filter-all": "Todo", "filter-released": "DISPONIBLE", "filter-dev": "EN DESARROLLO" }
         };
 
-        // Quan trọng: Gắn ID tự động cho thẻ select nếu chưa có
+        // Important: Automatically assign an ID to the select tag if it doesn't already have one.
         let langSelect = document.querySelector('select.language-dropdown') || document.querySelector('select');
         if(langSelect && !langSelect.id) langSelect.id = 'langSwitcher';
 
@@ -96,25 +116,25 @@
         }
 
         // ----------------------------------------------------
-        // 2. HỆ THỐNG LỌC DỰ ÁN (FILTER TABS)
+        // 2. FILTER TABS
         // ----------------------------------------------------
         const filterBtns = document.querySelectorAll('.filter-tab');
         const projects = document.querySelectorAll('.project-card');
 
         filterBtns.forEach(btn => {
             btn.addEventListener('click', () => {
-                // Xóa active cũ, bật active mới
+                //Delete the old activation, activate the new activation.
                 filterBtns.forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
 
-                // Lọc thẻ dự án
+                // filter tabs
                 const filterValue = btn.getAttribute('data-filter');
                 projects.forEach(card => {
                     const status = card.getAttribute('data-status');
                     if (filterValue === 'all' || filterValue === status) {
-                        card.style.display = ''; // Hiện lại
+                        card.style.display = ''; // show again 
                     } else {
-                        card.style.display = 'none'; // Giấu đi
+                        card.style.display = 'none'; // hide
                     }
                 });
             });
