@@ -19,3 +19,13 @@ collections:
       - { label: "Author", name: "author", widget: "string", default: "Sam" }
       - { label: "External Link (AO3/etc.)", name: "link", widget: "string", required: false }
       - { label: "Body Content", name: "body", widget: "markdown" } # Editor area 
+# ------ SECTION 2: GALLERY --- ---
+  - name: "gallery"
+    label: "Gallery & Artworks"
+    folder: "_gallery" # Newly posted photos will be automatically saved here as data files.
+    create: true
+    slug: "art-{{fields.title}}"
+    fields:
+      - { label: "Artwork Title (For example: Art 5)", name: "title", widget: "string" }
+      - { label: "Upload Image", name: "image", widget: "image" } # Button to select a photo from the computer
+      - { label: "Artist Description", name: "description", widget: "text", required: false }
