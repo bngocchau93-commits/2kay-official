@@ -10,14 +10,16 @@
 <div class="container">
     <header>
         <div class="logo">2KAYSTUDIO <span>where storytelling and game technology converge.</span></div>
-        <nav>
-            <a href="index.html" data-key="nav-home">Home</a>
-            <a href="projects.html" data-key="nav-projects">Projects</a>
-            <a href="shop.html" data-key="nav-shop">Shop</a>
-            <a href="events.html" data-key="nav-events">Events</a>
-            <a href="lore.html" data-key="nav-lore">Lore</a>
-            <a href="about.html" data-key="nav-about">About</a>
-        </nav>
+         <nav>
+                <a href="index.html" data-key="nav-home">Home</a>
+                <a href="projects.html" data-key="nav-projects">Projects</a>
+                <a href="shop.html" data-key="nav-shop">Shop</a>
+                <a href="events.html" data-key="nav-events">Events</a>
+                <a href="lore.html" data-key="nav-lore">Lore</a>
+                <a href="gallery.html" data-key="nav-gallery">Gallery</a>
+                <a href="lab.html" data-key="nav-lab">2KAY LAB</a>
+                <a href="about.html" data-key="nav-about">About</a>
+           </nav>
         <select class="lang-switcher" id="langSwitcher">
             <option value="en">🇬🇧 English</option>
             <option value="vi">🇻🇳 Tiếng Việt</option>
@@ -28,32 +30,26 @@
         </select>
     </header>
 
-    <section id="shop">
-        <h2 class="section-title" data-key="shop-title">Official Shop</h2>
-        <div class="shop-grid">
-            <!-- Sản phẩm mẫu -->
-            <div class="shop-item">
-                <h3>Echo ESP32 Custom Kit</h3>
-                <p data-key="shop-esp-desc">Hardware accessory for developers and creators.</p>
-                <span class="price">$49.99</span>
-                <button class="cta-btn" data-key="shop-buy">Buy Now</button>
+   <section id="shop" class="section">
+    <div class="container">
+        <h2 class="section-title">2KAY Official Shop</h2>
+        <div class="shop-wrapper" style="text-align: center; padding: 40px 20px;">
+            <div class="glass-card" style="max-width: 600px; margin: 0 auto; padding: 30px; border: 1px solid #ff2d7b; border-radius: 8px;">
+                <div style="font-size: 3rem; margin-bottom: 20px;">📦</div>
+                <h3 style="color: #ff2d7b; margin-top: 0;">Visit Our BOOTH Store</h3>
+                <p style="color: #b8b8d0; line-height: 1.6; margin-bottom: 30px;">Get your hands on exclusive digital assets, official merchandise, Echo ESP32 custom hardware, and limited physical collectibles directly from our BOOTH market.</p>
+                <!-- link shop BOOTH #  -->
+                <a href="https://booth.pm" target="_blank" class="project-link" style="background: #ff2d7b; color: #fff; padding: 12px 24px; border-radius: 4px; text-decoration: none; font-weight: bold; display: inline-block;">Go to 2KAY STUDIO on BOOTH ➔</a>
             </div>
-            <div class="shop-item">
-                <h3>Wandering Relics Artbook</h3>
-                <p data-key="shop-artbook-desc">Concept art and behind-the-scenes.</p>
-                <span class="price">$24.99</span>
-                <button class="cta-btn" data-key="shop-buy">Buy Now</button>
-            </div>
-            <!-- Thêm sản phẩm khác... -->
         </div>
-    </section>
-
+    </div>
+</section>
     <footer>
         <div class="social-links">
             <a href="https://x.com/2kaystudio">🐦 Twitter/X</a>
             <a href="#">💬 Discord</a>
             <a href="https://2kaystudioofficial.itch.io">🎮 Itch.io</a>
-            <a href="www.youtube.com/@2KAY_STUDIO">🕹️ Youtube</a>
+            <a href="https://www.youtube.com/@2KAY_STUDIO">🕹️ Youtube</a>
             <a href="https://archiveofourown.org/users/Sam_Anthos/pseuds/Sam_Anthos">📚 AO3</a>
             <a href="https://www.newgrounds.com/portal/view/1040822">💀 Newgrounds</a>
             <a href="https://www.indiedb.com/members/2kaystudio">📦 IndieDB</a>
@@ -67,21 +63,103 @@
 </div>
 
 <script>
-    // Script giống trang chủ (thêm từ điển cho các key shop-*)
-    const shopTranslations = {
-        en: {
+    document.addEventListener("DOMContentLoaded", function() {
+        
+        // ----------------------------------------------------
+        // 1. Langs
+        // ----------------------------------------------------
+        const translations = {
+            en: { "nav-home": "Home", "nav-projects": "Projects", "nav-shop": "Shop", "nav-events": "Events", "nav-lore": "Lore","nav-gallery": "Gallery", "nav-about": "About Us", "filter-all": "All", "filter-released": "AVAILABLE", "filter-dev": "UNDER DEVELOPMENT" },
+            vi: { "nav-home": "Trang Chủ", "nav-projects": "Dự Án", "nav-shop": "Cửa Hàng", "nav-events": "Sự Kiện", "nav-lore": "Cốt Truyện","nav-gallery": "Thư viện ảnh", "nav-about": "Về Chúng Tôi", "filter-all": "Tất Cả", "filter-released": "ĐÃ PHÁT HÀNH", "filter-dev": "ĐANG PHÁT TRIỂN" },
+            zh: { "nav-home": "首页", "nav-projects": "项目", "nav-shop": "商店", "nav-events": "活动", "nav-lore": "故事","nav-gallery": "图库", "nav-about": "关于我们", "filter-all": "全部", "filter-released": "现已推出", "filter-dev": "开发中" },
+            ja: { "nav-home": "ホーム", "nav-projects": "プロジェクト", "nav-shop": "ショップ", "nav-events": "イベント", "nav-lore": "ロア","nav-gallery": "ギャラリー", "nav-about": "私たちについて", "filter-all": "すべて", "filter-released": "配信中", "filter-dev": "開発中" },
+            ru: { "nav-home": "Главная", "nav-projects": "Проекты", "nav-shop": "Магазин", "nav-events": "События", "nav-lore": "Лор","nav-gallery": "Галерея", "nav-about": "О нас", "filter-all": "Все", "filter-released": "ДОСТУПНО", "filter-dev": "В РАЗРАБОТКЕ" },
+            es: { "nav-home": "Inicio", "nav-projects": "Proyectos", "nav-shop": "Tienda", "nav-events": "Eventos", "nav-lore": "Lore","nav-gallery": "Galería", "nav-about": "Sobre Nosotros", "filter-all": "Todo", "filter-released": "DISPONIBLE", "filter-dev": "EN DESARROLLO" }
+        };
+            en: {
             "shop-title": "Official Shop",
             "shop-esp-desc": "Hardware accessory for developers and creators.",
             "shop-artbook-desc": "Concept art and behind-the-scenes.",
             "shop-buy": "Buy Now"
         },
-        // ... các ngôn ngữ khác
+            vi: {
+            "shop-title": "Cửa hàng chính thức",
+            "shop-esp-desc": "Phụ kiện phần cứng dành cho nhà phát triển và người sáng tạo.",
+            "shop-artbook-desc": "Tuyển tập tranh ý tưởng và hình ảnh hậu trường.",
+            "shop-buy": "Mua ngay"
+        },
+            zh: {
+            "shop-title": "官方商店",
+            "shop-esp-desc": "面向开发者与创作者的硬件配件。",
+            "shop-artbook-desc": "概念设定集与幕后花絮。",
+            "shop-buy": "立即购买"
+        }, 
+            ja: { 
+            "shop-title": "公式ショップ",
+            "shop-esp-desc": "開発者・クリエイター向けハードウェアアクセサリー",
+            "shop-artbook-desc": "コンセプトアートや制作の裏側を収録",
+            "shop-buy": "今すぐ購入"
+        },
+            ru: {
+            "shop-title": "Официальный магазин",
+            "shop-esp-desc": "Аппаратный аксессуар для разработчиков и создателей.",
+            "shop-artbook-desc": "Концепт-арт и закулисье.",
+            "shop-buy": "Купить сейчас"
+        },
+            es: {
+            "shop-title": "Tienda oficial",
+            "shop-esp-desc": "Accesorio de hardware para desarrolladores y creadores.",
+            "shop-artbook-desc": "Arte conceptual y contenido entre bastidores.",
+            "shop-buy": "Comprar ahora"
+        },
+
     };
+        // Important: Automatically assign an ID to the select tag if it doesn't already have one.
+        let langSelect = document.querySelector('select.language-dropdown') || document.querySelector('select');
+        if(langSelect && !langSelect.id) langSelect.id = 'langSwitcher';
+
+        if(langSelect) {
+            langSelect.addEventListener('change', function(e) {
+                const lang = e.target.value;
+                document.querySelectorAll('[data-key]').forEach(el => {
+                    const key = el.getAttribute('data-key');
+                    if (translations[lang] && translations[lang][key]) {
+                        el.textContent = translations[lang][key];
+                    }
+                });
+            });
+        }
+
+        // ----------------------------------------------------
+        // 2. FILTER TABS
+        // ----------------------------------------------------
+        const filterBtns = document.querySelectorAll('.filter-tab');
+        const projects = document.querySelectorAll('.project-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Delete the old activation, activate the new activation
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                // Filter tabs
+                const filterValue = btn.getAttribute('data-filter');
+                projects.forEach(card => {
+                    const status = card.getAttribute('data-status');
+                    if (filterValue === 'all' || filterValue === status) {
+                        card.style.display = ''; // show again 
+                    } else {
+                        card.style.display = 'none'; // hide
+                    }
+                });
+            });
+        });
+    });
     <script>
     document.addEventListener("DOMContentLoaded", function() {
         
         // ----------------------------------------------------
-        // 1. HỆ THỐNG ĐA NGÔN NGỮ
+        // 1.langs
         // ----------------------------------------------------
         const translations = {
             en: { "nav-home": "Home", "nav-projects": "Projects", "nav-shop": "Shop", "nav-events": "Events", "nav-lore": "Lore", "nav-about": "About Us", "filter-all": "All", "filter-released": "AVAILABLE", "filter-dev": "UNDER DEVELOPMENT" },
