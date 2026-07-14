@@ -6,22 +6,23 @@
     <title>Projects — 2KAY STUDIO</title>
     <link rel="stylesheet" href="style.css" />
     <style>
-        /* Có thể để style đặc thù cho trang này nếu cần, nhưng nên dùng chung style.css */
     </style>
 </head>
 <body>
 <div class="container">
-    <!-- Header (giống trang chủ) -->
+    <!-- Header-->
     <header>
         <div class="logo">2KAYSTUDIO <span>where storytelling and game technology converge.</span></div>
         <nav>
-            <a href="index.html" data-key="nav-home">Home</a>
-            <a href="projects.html" data-key="nav-projects">Projects</a>
-            <a href="shop.html" data-key="nav-shop">Shop</a>
-            <a href="events.html" data-key="nav-events">Events</a>
-            <a href="lore.html" data-key="nav-lore">Lore</a>
-            <a href="about.html" data-key="nav-about">About</a>
-        </nav>
+                <a href="index.html" data-key="nav-home">Home</a>
+                <a href="projects.html" data-key="nav-projects">Projects</a>
+                <a href="shop.html" data-key="nav-shop">Shop</a>
+                <a href="events.html" data-key="nav-events">Events</a>
+                <a href="lore.html" data-key="nav-lore">Lore</a>
+                <a href="gallery.html" data-key="nav-gallery">Gallery</a>
+                <a href="lab.html" data-key="nav-lab">2KAY LAB</a>
+                <a href="about.html" data-key="nav-about">About</a>
+           </nav>
         <select class="lang-switcher" id="langSwitcher">
             <option value="en">🇬🇧 English</option>
             <option value="vi">🇻🇳 Tiếng Việt</option>
@@ -108,7 +109,7 @@
             <a href="https://x.com/2kaystudio">🐦 Twitter/X</a>
             <a href="#">💬 Discord</a>
             <a href="https://2kaystudioofficial.itch.io">🎮 Itch.io</a>
-            <a href="www.youtube.com/@2KAY_STUDIO">🕹️ Youtube</a>
+            <a href="https://www.youtube.com/@2KAY_STUDIO">🕹️ Youtube</a>
             <a href="https://archiveofourown.org/users/Sam_Anthos/pseuds/Sam_Anthos">📚 AO3</a>
             <a href="https://www.newgrounds.com/portal/view/1040822">💀 Newgrounds</a>
             <a href="https://www.indiedb.com/members/2kaystudio">📦 IndieDB</a>
@@ -126,18 +127,19 @@
     document.addEventListener("DOMContentLoaded", function() {
         
         // ----------------------------------------------------
-        // 1. HỆ THỐNG ĐA NGÔN NGỮ
+        // 1. langs
         // ----------------------------------------------------
         const translations = {
-            en: { "nav-home": "Home", "nav-projects": "Projects", "nav-shop": "Shop", "nav-events": "Events", "nav-lore": "Lore", "nav-about": "About Us", "filter-all": "All", "filter-released": "AVAILABLE", "filter-dev": "UNDER DEVELOPMENT" },
-            vi: { "nav-home": "Trang Chủ", "nav-projects": "Dự Án", "nav-shop": "Cửa Hàng", "nav-events": "Sự Kiện", "nav-lore": "Cốt Truyện", "nav-about": "Về Chúng Tôi", "filter-all": "Tất Cả", "filter-released": "ĐÃ PHÁT HÀNH", "filter-dev": "ĐANG PHÁT TRIỂN" },
-            zh: { "nav-home": "首页", "nav-projects": "项目", "nav-shop": "商店", "nav-events": "活动", "nav-lore": "故事", "nav-about": "关于我们", "filter-all": "全部", "filter-released": "现已推出", "filter-dev": "开发中" },
-            ja: { "nav-home": "ホーム", "nav-projects": "プロジェクト", "nav-shop": "ショップ", "nav-events": "イベント", "nav-lore": "ロア", "nav-about": "私たちについて", "filter-all": "すべて", "filter-released": "配信中", "filter-dev": "開発中" },
-            ru: { "nav-home": "Главная", "nav-projects": "Проекты", "nav-shop": "Магазин", "nav-events": "События", "nav-lore": "Лор", "nav-about": "О нас", "filter-all": "Все", "filter-released": "ДОСТУПНО", "filter-dev": "В РАЗРАБОТКЕ" },
-            es: { "nav-home": "Inicio", "nav-projects": "Proyectos", "nav-shop": "Tienda", "nav-events": "Eventos", "nav-lore": "Lore", "nav-about": "Sobre Nosotros", "filter-all": "Todo", "filter-released": "DISPONIBLE", "filter-dev": "EN DESARROLLO" }
+            en: { "nav-home": "Home", "nav-projects": "Projects", "nav-shop": "Shop", "nav-events": "Events", "nav-lore": "Lore","nav-gallery": "Gallery", "nav-about": "About Us", "filter-all": "All", "filter-released": "AVAILABLE", "filter-dev": "UNDER DEVELOPMENT" },
+            vi: { "nav-home": "Trang Chủ", "nav-projects": "Dự Án", "nav-shop": "Cửa Hàng", "nav-events": "Sự Kiện", "nav-lore": "Cốt Truyện","nav-gallery": "Thư viện ảnh", "nav-about": "Về Chúng Tôi", "filter-all": "Tất Cả", "filter-released": "ĐÃ PHÁT HÀNH", "filter-dev": "ĐANG PHÁT TRIỂN" },
+            zh: { "nav-home": "首页", "nav-projects": "项目", "nav-shop": "商店", "nav-events": "活动", "nav-lore": "故事","nav-gallery": "图库", "nav-about": "关于我们", "filter-all": "全部", "filter-released": "现已推出", "filter-dev": "开发中" },
+            ja: { "nav-home": "ホーム", "nav-projects": "プロジェクト", "nav-shop": "ショップ", "nav-events": "イベント", "nav-lore": "ロア","nav-gallery": "ギャラリー", "nav-about": "私たちについて", "filter-all": "すべて", "filter-released": "配信中", "filter-dev": "開発中" },
+            ru: { "nav-home": "Главная", "nav-projects": "Проекты", "nav-shop": "Магазин", "nav-events": "События", "nav-lore": "Лор","nav-gallery": "Галерея", "nav-about": "О нас", "filter-all": "Все", "filter-released": "ДОСТУПНО", "filter-dev": "В РАЗРАБОТКЕ" },
+            es: { "nav-home": "Inicio", "nav-projects": "Proyectos", "nav-shop": "Tienda", "nav-events": "Eventos", "nav-lore": "Lore","nav-gallery": "Galería", "nav-about": "Sobre Nosotros", "filter-all": "Todo", "filter-released": "DISPONIBLE", "filter-dev": "EN DESARROLLO" }
         };
 
-        // Quan trọng: Gắn ID tự động cho thẻ select nếu chưa có
+
+        // Important: Automatically assign an ID to the select tag.
         let langSelect = document.querySelector('select.language-dropdown') || document.querySelector('select');
         if(langSelect && !langSelect.id) langSelect.id = 'langSwitcher';
 
@@ -154,25 +156,25 @@
         }
 
         // ----------------------------------------------------
-        // 2. HỆ THỐNG LỌC DỰ ÁN (FILTER TABS)
+        // 2.FILTER TABS
         // ----------------------------------------------------
         const filterBtns = document.querySelectorAll('.filter-tab');
         const projects = document.querySelectorAll('.project-card');
 
         filterBtns.forEach(btn => {
             btn.addEventListener('click', () => {
-                // Xóa active cũ, bật active mới
+                // Delete the old activation, activate the new activation
                 filterBtns.forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
 
-                // Lọc thẻ dự án
+                // Filter tabs
                 const filterValue = btn.getAttribute('data-filter');
                 projects.forEach(card => {
                     const status = card.getAttribute('data-status');
                     if (filterValue === 'all' || filterValue === status) {
-                        card.style.display = ''; // Hiện lại
+                        card.style.display = ''; // show again
                     } else {
-                        card.style.display = 'none'; // Giấu đi
+                        card.style.display = 'none'; // hide
                     }
                 });
             });
