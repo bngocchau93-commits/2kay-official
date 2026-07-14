@@ -1,1 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2KAY STUDIO — Official Corporate &amp; Portal Site</title>
+    <style>
+        /* ----- RESET & BASE ----- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-dark: #0a0a0f;
+            --glass-bg: rgba(255, 255, 255, 0.04);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --neon-cyan: #00f0ff;
+            --neon-pink: #ff2d7b;
+            --neon-purple: #b967ff;
+            --text-white: #f0f0f8;
+            --text-soft: #b8b8d0;
+            --glow-cyan: 0 0 20px rgba(0, 240, 255, 0.3);
+            --glow-pink: 0 0 20px rgba(255, 45, 123, 0.25);
+            --radius: 24px;
+            --font-sans: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--bg-dark);
+            background-image: radial-gradient(circle at 20% 30%, rgba(0, 240, 255, 0.02) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(255, 45, 123, 0.02) 0%, transparent 50%);
+            color: var(--text-white);
+            font-family: var(--font-sans);
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 0 20px;
+        }
+
+        a {
+            color: var(--neon-cyan);
+            text-decoration: none;
+            transition: color 0.25s;
+        }
+        a:hover {
+            color: var(--neon-pink);
+            text-shadow: var(--glow-pink);
+        }
+
+        .container {
+            max-width: 1360px;
+            margin: 0 auto;
+            padding: 16px 0 40px;
+        }
+
+        /* ----- GLASSMORPHISM MIXIN ----- */
+        .glass {
+            background: var(--glass-bg);
+            backdrop-filter: blur(14px) saturate(1.4);
+            -webkit-backdrop-filter: blur(14px) saturate(1.4);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+        }
+
+        .glow-card {
+            transition: transform 0.25s ease, box-shadow 0.35s ease, border-color 0.25s;
+        }
+        .glow-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(0, 240, 255, 0.3);
+            box-shadow: var(--glow-cyan), 0 12px 40px rgba(0, 0, 0, 0.6);
+        }
+
+        /* ----- HEADER ----- */
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            padding: 18px 28px;
+            margin-bottom: 40px;
+            background: rgba(10, 10, 15, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 40px;
+            gap: 12px;
+        }
+
+        .logo {
+            font-size: 1.9rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            background: linear-gradient(135deg, var(--neon-cyan), var(--neon-pink));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 30px rgba(0, 240, 255, 0.2);
+        }
+        .logo span {
+            font-weight: 300;
+            color: var(--text-soft);
+            background: none;
+            -webkit-background-clip: unset;
+            background-clip: unset;
+            text-shadow: none;
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px 20px;
+            align-items: center;
+        }
+        nav a {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--text-soft);
+            padding: 6px 0;
+            border-bottom: 2px solid transparent;
+            transition: 0.25s;
+        }
+        nav a:hover {
+            color: var(--text-white);
+            border-bottom-color: var(--neon-cyan);
+        }
+
+        /* Language Switcher */
+        .lang-switcher {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 30px;
+            padding: 6px 14px;
+            color: var(--text-soft);
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: 0.25s;
+            font-weight: 500;
+            backdrop-filter: blur(4px);
+        }
+        .lang-switcher:hover {
+            background: rgba(0, 240, 255, 0.1);
+            border-color: var(--neon-cyan);
+            color: #fff;
+        }
+        .lang-switcher option {
+            background: #1a1a2e;
+            color: #f0f0f8;
+        }
+        <!-- ===== HERO ===== -->
+        .hero {
+            padding: 60px 40px 50px;
+            margin-bottom: 60px;
+            text-align: center;
+            border-radius: var(--radius);
+            background: radial-gradient(circle at 70% 20%, rgba(0, 240, 255, 0.05), transparent 60%),
+                radial-gradient(circle at 30% 80%, rgba(255, 45, 123, 0.04), transparent 50%);
+        }
+        .hero h1 {
+            font-size: clamp(2.8rem, 8vw, 4.6rem);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #fff 30%, var(--neon-cyan), var(--neon-pink));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .hero p {
+            font-size: 1.25rem;
+            max-width: 720px;
+            margin: 0 auto 30px;
+            color: var(--text-soft);
+        }
+        .cta-btn {
+            display: inline-block;
+            padding: 16px 48px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            border-radius: 60px;
+            background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
+            color: #0a0a0f;
+            box-shadow: 0 0 30px rgba(0, 240, 255, 0.25);
+            transition: 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        .cta-btn:hover {
+            transform: scale(1.04);
+            box-shadow: 0 0 50px rgba(0, 240, 255, 0.5);
+            color: #0a0a0f;
+        }
+
+        /* ----- SECTION TITLE ----- */
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 600;
+            margin-bottom: 28px;
+            display: inline-block;
+            background: linear-gradient(135deg, var(--text-white), var(--neon-cyan));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            border-left: 4px solid var(--neon-pink);
+            padding-left: 20px;
+        }
+
+        /* ----- PROJECT HUB (FILTER + CARDS) ----- */
+        .filter-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 32px;
+        }
+        .filter-tab {
+            padding: 10px 28px;
+            border-radius: 40px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: var(--text-soft);
+            font-weight: 500;
+            cursor: pointer;
+            transition: 0.25s;
+            font-size: 0.95rem;
+            backdrop-filter: blur(4px);
+        }
+        .filter-tab:hover {
+            background: rgba(0, 240, 255, 0.08);
+            color: #fff;
+        }
+        .filter-tab.active {
+            background: var(--neon-cyan);
+            color: #0a0a0f;
+            border-color: var(--neon-cyan);
+            box-shadow: var(--glow-cyan);
+            font-weight: 600;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 28px;
+            margin-bottom: 50px;
+        }
+
+        .project-card {
+            padding: 24px 22px 28px;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: var(--radius);
+            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+        .project-card.hidden {
+            display: none;
+        }
+        .project-card .card-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: #fff;
+        }
+        .project-card .card-meta {
+            font-size: 0.9rem;
+            color: var(--neon-cyan);
+            margin-bottom: 10px;
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .project-card .card-meta span {
+            background: rgba(0, 240, 255, 0.08);
+            padding: 2px 14px;
+            border-radius: 20px;
+            border: 1px solid rgba(0, 240, 255, 0.1);
+        }
+        .project-card .card-desc {
+            color: var(--text-soft);
+            font-size: 0.98rem;
+            flex: 1;
+            margin: 8px 0 16px;
+        }
+        .project-card .card-status {
+            display: inline-block;
+            padding: 4px 16px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+            align-self: flex-start;
+        }
+        .status-released {
+            background: rgba(0, 240, 255, 0.15);
+            color: var(--neon-cyan);
+            border: 1px solid rgba(0, 240, 255, 0.2);
+        }
+        .status-dev {
+            background: rgba(255, 45, 123, 0.12);
+            color: var(--neon-pink);
+            border: 1px solid rgba(255, 45, 123, 0.2);
+        }
+        .project-card .card-link {
+            font-weight: 500;
+            padding: 10px 0 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            margin-top: 6px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .project-card .card-link a {
+            color: var(--neon-purple);
+        }
+        .project-card .card-link a:hover {
+            color: var(--neon-pink);
+        }
+
+        /* ----- EVENTS & ANNOUNCEMENTS ----- */
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 24px;
+            margin-bottom: 50px;
+        }
+        .event-item {
+            padding: 22px 20px;
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            transition: 0.25s;
+        }
+        .event-item:hover {
+            border-color: rgba(255, 45, 123, 0.2);
+            box-shadow: var(--glow-pink);
+        }
+        .event-item .event-date {
+            font-size: 0.8rem;
+            color: var(--neon-cyan);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+        }
+        .event-item h4 {
+            font-size: 1.2rem;
+            margin-bottom: 6px;
+        }
+        .event-item p {
+            color: var(--text-soft);
+            font-size: 0.95rem;
+        }
+
+        /* ----- LORE & GALLERY ----- */
+        .lore-gallery-wrap {
+            display: grid;
+            grid-template-columns: 2fr 1.2fr;
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        @media (max-width: 860px) {
+            .lore-gallery-wrap {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 16px;
+        }
+        .gallery-item {
+            aspect-ratio: 1 / 1;
+            background: rgba(255, 255, 255, 0.04);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            color: var(--text-soft);
+            transition: 0.25s;
+            background-size: cover;
+            background-position: center;
+            text-shadow: 0 2px 12px rgba(0, 0, 0, 0.8);
+            font-weight: 500;
+            padding: 8px;
+            text-align: center;
+        }
+        .gallery-item:hover {
+            border-color: var(--neon-cyan);
+            box-shadow: var(--glow-cyan);
+            transform: scale(1.02);
+        }
+        .gallery-item .placeholder-icon {
+            font-size: 2.4rem;
+            opacity: 0.5;
+        }
+
+        .lore-snippets {
+            padding: 24px 24px 28px;
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: var(--radius);
+        }
+        .lore-snippets h3 {
+            font-size: 1.6rem;
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, var(--neon-pink), var(--neon-purple));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .lore-snippet {
+            padding: 16px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+        }
+        .lore-snippet:last-child {
+            border-bottom: none;
+        }
+        .lore-snippet .snippet-title {
+            font-weight: 600;
+            font-size: 1.05rem;
+            color: #fff;
+        }
+        .lore-snippet .snippet-excerpt {
+            color: var(--text-soft);
+            font-size: 0.95rem;
+            margin: 4px 0 8px;
+        }
+        .lore-snippet .snippet-link {
+            font-size: 0.9rem;
+            color: var(--neon-cyan);
+        }
+
+        /* ----- FOOTER ----- */
+        footer {
+            margin-top: 50px;
+            padding: 30px 24px 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.04);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            background: rgba(10, 10, 15, 0.5);
+            backdrop-filter: blur(8px);
+            border-radius: 40px 40px 20px 20px;
+        }
+        footer .copy {
+            color: var(--text-soft);
+            font-size: 0.9rem;
+        }
+        .social-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px 24px;
+        }
+        .social-links a {
+            font-weight: 500;
+            color: var(--text-soft);
+            transition: 0.2s;
+        }
+        .social-links a:hover {
+            color: var(--neon-cyan);
+            text-shadow: var(--glow-cyan);
+        }
+
+        /* ----- RESPONSIVE TWEAKS ----- */
+        @media (max-width: 640px) {
+            header {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 14px;
+                padding: 18px 20px;
+            }
+            nav {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            .hero {
+                padding: 40px 20px 36px;
+            }
+            .hero h1 {
+                font-size: 2.4rem;
+            }
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            .filter-tabs {
+                justify-content: center;
+            }
+            .section-title {
+                font-size: 1.7rem;
+            }
+            footer {
+                flex-direction: column;
+                text-align: center;
+            }
+            .lang-switcher {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <!-- ===== HEADER ===== -->
+        <header>
+            <div class="logo">2KAYSTUDIO 
+            <span>where storytelling and game technology converge.</span></div>
+
+            <nav>
+                <a href="index.html" data-key="nav-home">Home</a>
+                <a href="projects.html" data-key="nav-projects">Projects</a>
+                <a href="shop.html" data-key="nav-shop">Shop</a>
+                <a href="events.html" data-key="nav-events">Events</a>
+                <a href="lore.html" data-key="nav-lore">Lore</a>
+                <a href="gallery.html" data-key="nav-gallery">Gallery</a>
+                <a href="lab.html" data-key="nav-lab">2KAY LAB</a>
+                <a href="about.html" data-key="nav-about">About</a>
+           </nav>
+                <!-- Language Switcher -->
+                <select class="lang-switcher" id="langSwitcher">
+                    <option value="en">🇬🇧 English</option>
+                    <option value="vi">🇻🇳 Tiếng Việt</option>
+                    <option value="zh">🇨🇳 中文</option>
+                    <option value="ja">🇯🇵 日本語</option>
+                    <option value="ru">🇷🇺 Русский</option>
+                    <option value="es">🇪🇸 Español</option>
+                </select>
+            </nav>
+        </header>
+
+        <section id="2KAY LAB">
+    <h2 class="section-title" data-key="lab-title">2KAY LAB</h2>
+    
+    <div class="filter-tabs" id="filterTabs">
+        <button class="filter-tab active" data-filter="all" data-key="filter-all">All</button>
+        <button class="filter-tab" data-filter="released" data-key="filter-released">NOW AVAILABLE</button>
+        <button class="filter-tab" data-filter="dev" data-key="filter-dev">UNDER DEVELOPMENT</button>
+    </div>
+
+    <div class="projects-grid" id="projectsGrid">
+        <div class="project-card glow-card" data-status="released">
+            <div class="card-title">Scientific research project on planting vegetation to mitigate urban flooding</div>
+            <div class="card-meta">
+                <span>scientific research project</span>
+                <span>flood prevention / flood control</span>
+            </div>
+            <div class="card-desc">The love story unfolds in 1935 in the foggy, classically styled city of Mina Drumarsstad.</div>
+            <span class="card-status status-released">announced the research project</span>
+            <div class="card-link">🔗 <a href="link here" target="_blank">Read now</a></div>
+        </div>
+
+        <div class="project-card glow-card" data-status="dev">
+            <div class="card-title">PROJECT 02</div>
+            <div class="card-meta"><span>Classified</span></div>
+            <div class="card-desc">Under development. Stay tuned for future transmissions.</div>
+            <span class="card-status status-dev">UNDER DEVELOPMENT</span>
+            <div class="card-link">🔒 <span>Encrypted</span></div>
+        </div>
+
+        <div class="project-card glow-card" data-status="dev">
+            <div class="card-title">PROJECT 03</div>
+            <div class="card-meta"><span>Classified</span></div>
+            <div class="card-desc">Under development. Stay tuned for future transmissions.</div>
+            <span class="card-status status-dev">UNDER DEVELOPMENT</span>
+            <div class="card-link">🔒 <span>Encrypted</span></div>
+        </div>
+
+        <div class="project-card glow-card" data-status="dev">
+            <div class="card-title">PROJECT 04</div>
+            <div class="card-meta"><span>Classified</span></div>
+            <div class="card-desc">Under development. Stay tuned for future transmissions.</div>
+            <span class="card-status status-dev">UNDER DEVELOPMENT</span>
+            <div class="card-link">🔒 <span>Encrypted</span></div>
+        </div>
+
+        <div class="project-card glow-card" data-status="dev">
+            <div class="card-title">PROJECT 05</div>
+            <div class="card-meta"><span>Classified</span></div>
+            <div class="card-desc">Under development. Stay tuned for future transmissions.</div>
+            <span class="card-status status-dev">UNDER DEVELOPMENT</span>
+            <div class="card-link">🔒 <span>Encrypted</span></div>
+        </div>
+
+        <div class="project-card glow-card" data-status="dev">
+            <div class="card-title">PROJECT 06</div>
+            <div class="card-meta"><span>Classified</span></div>
+            <div class="card-desc">Under development. Stay tuned for future transmissions.</div>
+            <span class="card-status status-dev">UNDER DEVELOPMENT</span>
+            <div class="card-link">🔒 <span>Encrypted</span></div>
+        </div>
+
+    </div>
+            <div class="project-card glow-card" data-status="dev">
+            <div class="card-title">PROJECT 07</div>
+            <div class="card-meta"><span>Classified</span></div>
+            <div class="card-desc">Under development. Stay tuned for future transmissions.</div>
+            <span class="card-status status-dev">UNDER DEVELOPMENT</span>
+            <div class="card-link">🔒 <span>Encrypted</span></div>
+        </div>
+</section>
+        
+<footer id="footer">
+    <div class="social-links">
+        <a href="https://x.com/2kaystudio">🐦 Twitter/X</a>
+        <a href="#">💬 Discord</a>
+        <a href="https://2kaystudioofficial.itch.io">🎮 Itch.io</a>
+        <a href="https://www.youtube.com/@2KAY_STUDIO">🕹️ Youtube</a>
+        <a href="https://archiveofourown.org/users/Sam_Anthos/pseuds/Sam_Anthos">📚 AO3</a>
+        <a href="https://www.newgrounds.com/portal/view/1040822">💀 Newgrounds</a>
+        <a href="https://www.indiedb.com/members/2kaystudio">📦 IndieDB</a>
+        <a href="https://gamejolt.com/@2kaystudio">👾 GameJolt</a>
+        <a href="https://www.moddb.com/games/wandering-relics-horror-visual-novel">🛠️ ModDB</a>
+    </div>
+    <div class="copy">
+        © 2026 2KAY STUDIO. All rights reserved. All works are the intellectual property of the Studio.
+    </div>
+</footer>
+     <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        
+        // ----------------------------------------------------
+        // 1. Langs
+        // ----------------------------------------------------
+        const translations = {
+            en: { "nav-home": "Home", "nav-projects": "Projects", "nav-shop": "Shop", "nav-events": "Events", "nav-lore": "Lore","nav-gallery": "Gallery", "nav-about": "About Us", "filter-all": "All", "filter-released": "AVAILABLE", "filter-dev": "UNDER DEVELOPMENT" },
+            vi: { "nav-home": "Trang Chủ", "nav-projects": "Dự Án", "nav-shop": "Cửa Hàng", "nav-events": "Sự Kiện", "nav-lore": "Cốt Truyện","nav-gallery": "Thư viện ảnh", "nav-about": "Về Chúng Tôi", "filter-all": "Tất Cả", "filter-released": "ĐÃ PHÁT HÀNH", "filter-dev": "ĐANG PHÁT TRIỂN" },
+            zh: { "nav-home": "首页", "nav-projects": "项目", "nav-shop": "商店", "nav-events": "活动", "nav-lore": "故事","nav-gallery": "图库", "nav-about": "关于我们", "filter-all": "全部", "filter-released": "现已推出", "filter-dev": "开发中" },
+            ja: { "nav-home": "ホーム", "nav-projects": "プロジェクト", "nav-shop": "ショップ", "nav-events": "イベント", "nav-lore": "ロア","nav-gallery": "ギャラリー", "nav-about": "私たちについて", "filter-all": "すべて", "filter-released": "配信中", "filter-dev": "開発中" },
+            ru: { "nav-home": "Главная", "nav-projects": "Проекты", "nav-shop": "Магазин", "nav-events": "События", "nav-lore": "Лор","nav-gallery": "Галерея", "nav-about": "О нас", "filter-all": "Все", "filter-released": "ДОСТУПНО", "filter-dev": "В РАЗРАБОТКЕ" },
+            es: { "nav-home": "Inicio", "nav-projects": "Proyectos", "nav-shop": "Tienda", "nav-events": "Eventos", "nav-lore": "Lore","nav-gallery": "Galería", "nav-about": "Sobre Nosotros", "filter-all": "Todo", "filter-released": "DISPONIBLE", "filter-dev": "EN DESARROLLO" }
+        };
+
+        // Important: Automatically assign an ID to the select tag if it doesn't already have one.
+        let langSelect = document.querySelector('select.language-dropdown') || document.querySelector('select');
+        if(langSelect && !langSelect.id) langSelect.id = 'langSwitcher';
+
+        if(langSelect) {
+            langSelect.addEventListener('change', function(e) {
+                const lang = e.target.value;
+                document.querySelectorAll('[data-key]').forEach(el => {
+                    const key = el.getAttribute('data-key');
+                    if (translations[lang] && translations[lang][key]) {
+                        el.textContent = translations[lang][key];
+                    }
+                });
+            });
+        }
+
+        // ----------------------------------------------------
+        // 2. FILTER TABS
+        // ----------------------------------------------------
+        const filterBtns = document.querySelectorAll('.filter-tab');
+        const projects = document.querySelectorAll('.project-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Delete the old activation, activate the new activation
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                // Filter tabs
+                const filterValue = btn.getAttribute('data-filter');
+                projects.forEach(card => {
+                    const status = card.getAttribute('data-status');
+                    if (filterValue === 'all' || filterValue === status) {
+                        card.style.display = ''; // show again 
+                    } else {
+                        card.style.display = 'none'; // hide
+                    }
+                });
+            });
+        });
+    });
+</script>
 
