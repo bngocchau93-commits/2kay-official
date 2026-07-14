@@ -623,7 +623,7 @@
         <a href="https://x.com/2kaystudio">🐦 Twitter/X</a>
         <a href="#">💬 Discord</a>
         <a href="https://2kaystudioofficial.itch.io">🎮 Itch.io</a>
-        <a href="www.youtube.com/@2KAY_STUDIO">🕹️ Youtube</a>
+        <a href="https://www.youtube.com/@2KAY_STUDIO">🕹️ Youtube</a>
         <a href="https://archiveofourown.org/users/Sam_Anthos/pseuds/Sam_Anthos">📚 AO3</a>
         <a href="https://www.newgrounds.com/portal/view/1040822">💀 Newgrounds</a>
         <a href="https://www.indiedb.com/members/2kaystudio">📦 IndieDB</a>
@@ -638,7 +638,7 @@
     document.addEventListener("DOMContentLoaded", function() {
         
         // ----------------------------------------------------
-        // 1. HỆ THỐNG ĐA NGÔN NGỮ
+        // 1. Langs
         // ----------------------------------------------------
         const translations = {
             en: { "nav-home": "Home", "nav-projects": "Projects", "nav-shop": "Shop", "nav-events": "Events", "nav-lore": "Lore", "nav-about": "About Us", "filter-all": "All", "filter-released": "AVAILABLE", "filter-dev": "UNDER DEVELOPMENT" },
@@ -649,7 +649,7 @@
             es: { "nav-home": "Inicio", "nav-projects": "Proyectos", "nav-shop": "Tienda", "nav-events": "Eventos", "nav-lore": "Lore", "nav-about": "Sobre Nosotros", "filter-all": "Todo", "filter-released": "DISPONIBLE", "filter-dev": "EN DESARROLLO" }
         };
 
-        // Quan trọng: Gắn ID tự động cho thẻ select nếu chưa có
+        // Important: Automatically assign an ID to the select tag if it doesn't already have one.
         let langSelect = document.querySelector('select.language-dropdown') || document.querySelector('select');
         if(langSelect && !langSelect.id) langSelect.id = 'langSwitcher';
 
@@ -666,25 +666,25 @@
         }
 
         // ----------------------------------------------------
-        // 2. HỆ THỐNG LỌC DỰ ÁN (FILTER TABS)
+        // 2. FILTER TABS
         // ----------------------------------------------------
         const filterBtns = document.querySelectorAll('.filter-tab');
         const projects = document.querySelectorAll('.project-card');
 
         filterBtns.forEach(btn => {
             btn.addEventListener('click', () => {
-                // Xóa active cũ, bật active mới
+                // Delete the old activation, activate the new activation
                 filterBtns.forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
 
-                // Lọc thẻ dự án
+                // Filter tabs
                 const filterValue = btn.getAttribute('data-filter');
                 projects.forEach(card => {
                     const status = card.getAttribute('data-status');
                     if (filterValue === 'all' || filterValue === status) {
-                        card.style.display = ''; // Hiện lại
+                        card.style.display = ''; // show again 
                     } else {
-                        card.style.display = 'none'; // Giấu đi
+                        card.style.display = 'none'; // hide
                     }
                 });
             });
