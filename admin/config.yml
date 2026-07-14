@@ -1,0 +1,20 @@
+backend:
+  name: github
+  repo: bngocchau93-commits/2kay-official
+  branch: main
+
+media_folder: "assets" # Storage location for photos Sam uploads to posts
+public_folder: "assets"
+
+collections:
+  - name: "lore"
+    label: "Lore & Devlogs"
+    folder: "_posts" # Sam's posts will be automatically saved as separate files here.
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Author", name: "author", widget: "string", default: "Sam" }
+      - { label: "External Link (AO3/etc.)", name: "link", widget: "string", required: false }
+      - { label: "Body Content", name: "body", widget: "markdown" } # Editor area 
