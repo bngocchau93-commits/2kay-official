@@ -170,7 +170,7 @@
             es: { "nav-home": "Inicio", "nav-projects": "Proyectos", "nav-shop": "Tienda", "nav-events": "Eventos", "nav-lore": "Lore", "nav-about": "Sobre Nosotros", "filter-all": "Todo", "filter-released": "DISPONIBLE", "filter-dev": "EN DESARROLLO" }
         };
 
-        // Quan trọng: Gắn ID tự động cho thẻ select nếu chưa có
+        // Important: Automatically assign an ID to the select tag
         let langSelect = document.querySelector('select.language-dropdown') || document.querySelector('select');
         if(langSelect && !langSelect.id) langSelect.id = 'langSwitcher';
 
@@ -187,25 +187,25 @@
         }
 
         // ----------------------------------------------------
-        // 2. HỆ THỐNG LỌC DỰ ÁN (FILTER TABS)
+        // 2. FILTER TABS
         // ----------------------------------------------------
         const filterBtns = document.querySelectorAll('.filter-tab');
         const projects = document.querySelectorAll('.project-card');
 
         filterBtns.forEach(btn => {
             btn.addEventListener('click', () => {
-                // Xóa active cũ, bật active mới
+                // Delete the old activation, activate the new activation
                 filterBtns.forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
 
-                // Lọc thẻ dự án
+                // Filter tabs
                 const filterValue = btn.getAttribute('data-filter');
                 projects.forEach(card => {
                     const status = card.getAttribute('data-status');
                     if (filterValue === 'all' || filterValue === status) {
-                        card.style.display = ''; // Hiện lại
+                        card.style.display = ''; // show again
                     } else {
-                        card.style.display = 'none'; // Giấu đi
+                        card.style.display = 'none'; // hide
                     }
                 });
             });
