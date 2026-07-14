@@ -17,8 +17,11 @@
                 <a href="shop.html" data-key="nav-shop">Shop</a>
                 <a href="events.html" data-key="nav-events">Events</a>
                 <a href="lore.html" data-key="nav-lore">Lore</a>
+                <a href="gallery.html" data-key="nav-gallery">Gallery</a>
+                <a href="lab.html" data-key="nav-lab">2KAY LAB</a>
                 <a href="about.html" data-key="nav-about">About</a>
             </nav>
+
                 <!-- Language Switcher -->
                 <select class="lang-switcher" id="langSwitcher">
                     <option value="en">🇬🇧 English</option>
@@ -30,33 +33,34 @@
                 </select>
             </nav>
         </header>
-
-    <section id="lore">
-        <h2 class="section-title" data-key="lore-title">The Library & 2KAY LAB</h2>
-        <div class="lore-gallery-wrap">
-            <div class="lore-snippets">
-                <h3 data-key="lore-snippets-head">Latest Lore Entries</h3>
-                <div class="lore-snippet">
-                    <div class="snippet-title" data-key="lore1-title">The City of Dreams</div>
-                    <div class="snippet-excerpt" data-key="lore1-excerpt">Mina Drömmars Stad — a city that exists between reality and nightmare...</div>
-                    <a href="#" class="snippet-link" data-key="read-more">Read More →</a>
+<section id="lore-blog" class="section">
+    <div class="container" style="max-width: 800px;">
+        <h2 class="section-title">The Library & Devlogs</h2>
+        
+        <div class="blog-feed">
+            <!-- <!-- ARTICLE NUMBER 1-> -->
+            <article class="glass-card" style="padding: 25px; margin-bottom: 30px; border: 1px solid rgba(0, 240, 255, 0.15); border-radius: 8px;">
+                <header class="post-header" style="margin-bottom: 15px;">
+                    <div class="post-meta" style="font-size: 0.85rem; color: #b767ff;">✍️ Posted by Sam | 📅 July 14, 2026</div>
+                    <h3 class="post-title" style="color: #00f0ff; margin: 5px 0 0 0; font-size: 1.5rem;">Foundational Script & Narrative Frameworks</h3>
+                </header>
+                <div class="post-content" style="color: #b8b8d0; line-height: 1.6; font-size: 0.95rem;">
+                    <p>We have officially deployed our base archive structures. The narrative blueprints for our upcoming classified operations are currently being formatted. For extended text segments and alternative worldbuilding logs, you can also follow our external updates.</p>
                 </div>
-                <!-- Thêm snippet -->
-            </div>
-            <div class="gallery-grid">
-                <div class="gallery-item" style="background-image: url('assets/img1.jpg');">Art 1</div>
-                <div class="gallery-item" style="background-image: url('assets/img2.jpg');">Art 2</div>
-                <div class="gallery-item" style="background-image: url('assets/img3.jpg');">Art 3</div>
-            </div>
+                <footer class="post-footer" style="margin-top: 15px; padding-top: 15px; border-top: 1px solid rgba(255,255,255,0.05);">
+                    <a href="https://archiveofourown.org" target="_blank" class="project-link" style="font-size: 0.9rem; color: #00f0ff; text-decoration: none;">Read Full Script on AO3 ➔</a>
+                </footer>
+            </article>
         </div>
-    </section>
+    </div>
+</section>
 
     <footer id="footer">
     <div class="social-links">
         <a href="https://x.com/2kaystudio">🐦 Twitter/X</a>
         <a href="#">💬 Discord</a>
         <a href="https://2kaystudioofficial.itch.io">🎮 Itch.io</a>
-        <a href="www.youtube.com/@2KAY_STUDIO">🕹️ Youtube</a>
+        <a href="https://www.youtube.com/@2KAY_STUDIO">🕹️ Youtube</a>
         <a href="https://archiveofourown.org/users/Sam_Anthos/pseuds/Sam_Anthos">📚 AO3</a>
         <a href="https://www.newgrounds.com/portal/view/1040822">💀 Newgrounds</a>
         <a href="https://www.indiedb.com/members/2kaystudio">📦 IndieDB</a>
@@ -72,7 +76,7 @@
     document.addEventListener("DOMContentLoaded", function() {
         
         // ----------------------------------------------------
-        // 1. HỆ THỐNG ĐA NGÔN NGỮ
+        // 1. Langs
         // ----------------------------------------------------
         const translations = {
             en: { "nav-home": "Home", "nav-projects": "Projects", "nav-shop": "Shop", "nav-events": "Events", "nav-lore": "Lore", "nav-about": "About Us", "filter-all": "All", "filter-released": "AVAILABLE", "filter-dev": "UNDER DEVELOPMENT" },
@@ -83,7 +87,7 @@
             es: { "nav-home": "Inicio", "nav-projects": "Proyectos", "nav-shop": "Tienda", "nav-events": "Eventos", "nav-lore": "Lore", "nav-about": "Sobre Nosotros", "filter-all": "Todo", "filter-released": "DISPONIBLE", "filter-dev": "EN DESARROLLO" }
         };
 
-        // Quan trọng: Gắn ID tự động cho thẻ select nếu chưa có
+        // Important: Automatically assign an ID to the select tag if it doesn't already have one.
         let langSelect = document.querySelector('select.language-dropdown') || document.querySelector('select');
         if(langSelect && !langSelect.id) langSelect.id = 'langSwitcher';
 
@@ -100,25 +104,25 @@
         }
 
         // ----------------------------------------------------
-        // 2. HỆ THỐNG LỌC DỰ ÁN (FILTER TABS)
+        // 2. FILTER TABS
         // ----------------------------------------------------
         const filterBtns = document.querySelectorAll('.filter-tab');
         const projects = document.querySelectorAll('.project-card');
 
         filterBtns.forEach(btn => {
             btn.addEventListener('click', () => {
-                // Xóa active cũ, bật active mới
+                // Delete the old activation, activate the new activation.
                 filterBtns.forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
 
-                // Lọc thẻ dự án
+                // filter tabs
                 const filterValue = btn.getAttribute('data-filter');
                 projects.forEach(card => {
                     const status = card.getAttribute('data-status');
                     if (filterValue === 'all' || filterValue === status) {
-                        card.style.display = ''; // Hiện lại
+                        card.style.display = ''; // show again 
                     } else {
-                        card.style.display = 'none'; // Giấu đi
+                        card.style.display = 'none'; // hide
                     }
                 });
             });
