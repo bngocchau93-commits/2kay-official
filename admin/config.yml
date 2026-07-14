@@ -8,6 +8,7 @@ media_folder: "assets" # Storage location for photos Sam uploads to posts
 public_folder: "assets"
 
 collections:
+# --- SECTION 1: LORE & DEVLOG MANAGEMENT ---
   - name: "lore"
     label: "Lore & Devlogs"
     folder: "_posts" # Sam's posts will be automatically saved as separate files here.
@@ -29,3 +30,16 @@ collections:
       - { label: "Artwork Title (For example: Art 5)", name: "title", widget: "string" }
       - { label: "Upload Image", name: "image", widget: "image" } # Button to select a photo from the computer
       - { label: "Artist Description", name: "description", widget: "text", required: false }
+# --- SECTION 3: EVENT MANAGEMENT (EVENTS & STREAMS) ---
+- name: "events"
+    label: "Events & Broadcasts"
+    folder: "_events"
+    create: true
+    slug: "event-{{year}}-{{month}}-{{day}}"
+    fields:
+      - { label: "Event Title", name: "title", widget: "string" }
+      - { label: "Date & Time", name: "date", widget: "datetime" }
+      #Super convenient event type selector for Sam.:
+      - { label: "Category", name: "category", widget: "select", options: ["📢 Studio Event / Giveaway", "🎮 Streamer Live Broadcast"] }
+      - { label: "Short Description", name: "description", widget: "text" }
+      - { label: "Action Link (Twitch/YouTube/Form)", name: "link", widget: "string", required: false }
