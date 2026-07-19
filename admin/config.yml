@@ -9,7 +9,7 @@ public_folder: "assets"
 
 collections:
 # --- SECTION 1: LORE & DEVLOG MANAGEMENT ---
-  - name: "lore"
+   name: "lore"
     label: "Lore & Devlogs"
     folder: "_posts" # Sam's posts will be automatically saved as separate files here.
     create: true
@@ -21,7 +21,7 @@ collections:
       - { label: "External Link (AO3/etc.)", name: "link", widget: "string", required: false }
       - { label: "Body Content", name: "body", widget: "markdown" } # Editor area 
 # ------ SECTION 2: GALLERY --- ---
-  - name: "gallery"
+   name: "gallery"
     label: "Gallery & Artworks"
     folder: "_gallery" # Newly posted photos will be automatically saved here as data files.
     create: true
@@ -31,7 +31,7 @@ collections:
       - { label: "Upload Image", name: "image", widget: "image" } # Button to select a photo from the computer
       - { label: "Artist Description", name: "description", widget: "text", required: false }
 # --- SECTION 3: EVENT MANAGEMENT (EVENTS & STREAMS) ---
-- name: "events"
+  name: "events"
     label: "Events & Broadcasts"
     folder: "_events"
     create: true
