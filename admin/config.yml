@@ -40,6 +40,6 @@ collections:
       - { label: "Event Title", name: "title", widget: "string" }
       - { label: "Date & Time", name: "date", widget: "datetime" }
       #Super convenient event type selector for Sam.:
-      - { label: "Category", name: "category", widget: "select", options: ["📢 Studio Event / Giveaway", "🎮 Streamer Live Broadcast"] }
+      - { label: "Category", name: "category", widget: "select", options: ["Studio Event / Giveaway", "Streamer Live Broadcast"] }
       - { label: "Short Description", name: "description", widget: "text" }
       - { label: "Action Link (Twitch/YouTube/Form)", name: "link", widget: "string", required: false }
