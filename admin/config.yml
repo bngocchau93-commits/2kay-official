@@ -2,16 +2,15 @@ backend:
   name: github
   repo: bngocchau93-commits/2kay-official
   branch: main
-  
-  
-media_folder: "assets" # Storage location for photos Sam uploads to posts
+
+media_folder: "assets"
 public_folder: "assets"
 
 collections:
-# --- SECTION 1: LORE & DEVLOG MANAGEMENT ---
-   name: "lore"
+  # --- SECTION 1: LORE & DEVLOG MANAGEMENT ---
+  - name: "lore"
     label: "Lore & Devlogs"
-    folder: "_posts" # Sam's posts will be automatically saved as separate files here.
+    folder: "_posts"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
@@ -19,19 +18,21 @@ collections:
       - { label: "Publish Date", name: "date", widget: "datetime" }
       - { label: "Author", name: "author", widget: "string", default: "Sam" }
       - { label: "External Link (AO3/etc.)", name: "link", widget: "string", required: false }
-      - { label: "Body Content", name: "body", widget: "markdown" } # Editor area 
-# ------ SECTION 2: GALLERY --- ---
-   name: "gallery"
+      - { label: "Body Content", name: "body", widget: "markdown" }
+
+  # --- SECTION 2: GALLERY MANAGEMENT ---
+  - name: "gallery"
     label: "Gallery & Artworks"
-    folder: "_gallery" # Newly posted photos will be automatically saved here as data files.
+    folder: "_gallery"
     create: true
     slug: "art-{{fields.title}}"
     fields:
       - { label: "Artwork Title (For example: Art 5)", name: "title", widget: "string" }
-      - { label: "Upload Image", name: "image", widget: "image" } # Button to select a photo from the computer
+      - { label: "Upload Image", name: "image", widget: "image" }
       - { label: "Artist Description", name: "description", widget: "text", required: false }
-# --- SECTION 3: EVENT MANAGEMENT (EVENTS & STREAMS) ---
-  name: "events"
+
+  # --- SECTION 3: EVENT MANAGEMENT ---
+  - name: "events"
     label: "Events & Broadcasts"
     folder: "_events"
     create: true
@@ -39,7 +40,6 @@ collections:
     fields:
       - { label: "Event Title", name: "title", widget: "string" }
       - { label: "Date & Time", name: "date", widget: "datetime" }
-      #Super convenient event type selector for Sam.:
       - { label: "Category", name: "category", widget: "select", options: ["Studio Event / Giveaway", "Streamer Live Broadcast"] }
       - { label: "Short Description", name: "description", widget: "text" }
       - { label: "Action Link (Twitch/YouTube/Form)", name: "link", widget: "string", required: false }
