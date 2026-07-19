@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>2KAY STUDIO — Official Corporate &amp; Portal Site</title>
+    <title>2KAY STUDIO — Gallery</title>
     <style>
         /* ----- RESET & BASE ----- */
         * {
@@ -56,25 +56,6 @@
             max-width: 1360px;
             margin: 0 auto;
             padding: 16px 0 40px;
-        }
-
-        /* ----- GLASSMORPHISM MIXIN ----- */
-        .glass {
-            background: var(--glass-bg);
-            backdrop-filter: blur(14px) saturate(1.4);
-            -webkit-backdrop-filter: blur(14px) saturate(1.4);
-            border: 1px solid var(--glass-border);
-            border-radius: var(--radius);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
-        }
-
-        .glow-card {
-            transition: transform 0.25s ease, box-shadow 0.35s ease, border-color 0.25s;
-        }
-        .glow-card:hover {
-            transform: translateY(-6px);
-            border-color: rgba(0, 240, 255, 0.3);
-            box-shadow: var(--glow-cyan), 0 12px 40px rgba(0, 0, 0, 0.6);
         }
 
         /* ----- HEADER ----- */
@@ -131,7 +112,6 @@
             border-bottom-color: var(--neon-cyan);
         }
 
-        /* Language Switcher */
         .lang-switcher {
             background: rgba(255, 255, 255, 0.06);
             border: 1px solid rgba(255, 255, 255, 0.1);
@@ -153,49 +133,6 @@
             background: #1a1a2e;
             color: #f0f0f8;
         }
-        <!-- ===== HERO ===== -->
-        .hero {
-            padding: 60px 40px 50px;
-            margin-bottom: 60px;
-            text-align: center;
-            border-radius: var(--radius);
-            background: radial-gradient(circle at 70% 20%, rgba(0, 240, 255, 0.05), transparent 60%),
-                radial-gradient(circle at 30% 80%, rgba(255, 45, 123, 0.04), transparent 50%);
-        }
-        .hero h1 {
-            font-size: clamp(2.8rem, 8vw, 4.6rem);
-            font-weight: 700;
-            line-height: 1.1;
-            margin-bottom: 20px;
-            background: linear-gradient(135deg, #fff 30%, var(--neon-cyan), var(--neon-pink));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-        .hero p {
-            font-size: 1.25rem;
-            max-width: 720px;
-            margin: 0 auto 30px;
-            color: var(--text-soft);
-        }
-        .cta-btn {
-            display: inline-block;
-            padding: 16px 48px;
-            font-size: 1.2rem;
-            font-weight: 600;
-            border-radius: 60px;
-            background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
-            color: #0a0a0f;
-            box-shadow: 0 0 30px rgba(0, 240, 255, 0.25);
-            transition: 0.3s;
-            border: none;
-            cursor: pointer;
-        }
-        .cta-btn:hover {
-            transform: scale(1.04);
-            box-shadow: 0 0 50px rgba(0, 240, 255, 0.5);
-            color: #0a0a0f;
-        }
 
         /* ----- SECTION TITLE ----- */
         .section-title {
@@ -211,239 +148,53 @@
             padding-left: 20px;
         }
 
-        /* ----- PROJECT HUB (FILTER + CARDS) ----- */
-        .filter-tabs {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin-bottom: 32px;
-        }
-        .filter-tab {
-            padding: 10px 28px;
-            border-radius: 40px;
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            color: var(--text-soft);
-            font-weight: 500;
-            cursor: pointer;
-            transition: 0.25s;
-            font-size: 0.95rem;
-            backdrop-filter: blur(4px);
-        }
-        .filter-tab:hover {
-            background: rgba(0, 240, 255, 0.08);
-            color: #fff;
-        }
-        .filter-tab.active {
-            background: var(--neon-cyan);
-            color: #0a0a0f;
-            border-color: var(--neon-cyan);
-            box-shadow: var(--glow-cyan);
-            font-weight: 600;
-        }
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 28px;
-            margin-bottom: 50px;
-        }
-
-        .project-card {
-            padding: 24px 22px 28px;
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            border-radius: var(--radius);
-            transition: 0.3s;
-            display: flex;
-            flex-direction: column;
-        }
-        .project-card.hidden {
-            display: none;
-        }
-        .project-card .card-title {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 6px;
-            color: #fff;
-        }
-        .project-card .card-meta {
-            font-size: 0.9rem;
-            color: var(--neon-cyan);
-            margin-bottom: 10px;
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-        }
-        .project-card .card-meta span {
-            background: rgba(0, 240, 255, 0.08);
-            padding: 2px 14px;
-            border-radius: 20px;
-            border: 1px solid rgba(0, 240, 255, 0.1);
-        }
-        .project-card .card-desc {
-            color: var(--text-soft);
-            font-size: 0.98rem;
-            flex: 1;
-            margin: 8px 0 16px;
-        }
-        .project-card .card-status {
-            display: inline-block;
-            padding: 4px 16px;
-            border-radius: 30px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            letter-spacing: 0.3px;
-            text-transform: uppercase;
-            margin-bottom: 16px;
-            align-self: flex-start;
-        }
-        .status-released {
-            background: rgba(0, 240, 255, 0.15);
-            color: var(--neon-cyan);
-            border: 1px solid rgba(0, 240, 255, 0.2);
-        }
-        .status-dev {
-            background: rgba(255, 45, 123, 0.12);
-            color: var(--neon-pink);
-            border: 1px solid rgba(255, 45, 123, 0.2);
-        }
-        .project-card .card-link {
-            font-weight: 500;
-            padding: 10px 0 0;
-            border-top: 1px solid rgba(255, 255, 255, 0.06);
-            margin-top: 6px;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .project-card .card-link a {
-            color: var(--neon-purple);
-        }
-        .project-card .card-link a:hover {
-            color: var(--neon-pink);
-        }
-
-        /* ----- EVENTS & ANNOUNCEMENTS ----- */
-        .events-grid {
+        /* ----- GALLERY GRID ----- */
+        .gallery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
             gap: 24px;
             margin-bottom: 50px;
         }
-        .event-item {
-            padding: 22px 20px;
-            background: rgba(255, 255, 255, 0.02);
-            backdrop-filter: blur(6px);
-            -webkit-backdrop-filter: blur(6px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 20px;
-            transition: 0.25s;
-        }
-        .event-item:hover {
-            border-color: rgba(255, 45, 123, 0.2);
-            box-shadow: var(--glow-pink);
-        }
-        .event-item .event-date {
-            font-size: 0.8rem;
-            color: var(--neon-cyan);
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            margin-bottom: 6px;
-        }
-        .event-item h4 {
-            font-size: 1.2rem;
-            margin-bottom: 6px;
-        }
-        .event-item p {
-            color: var(--text-soft);
-            font-size: 0.95rem;
-        }
 
-        /* ----- LORE & GALLERY ----- */
-        .lore-gallery-wrap {
-            display: grid;
-            grid-template-columns: 2fr 1.2fr;
-            gap: 30px;
-            margin-bottom: 50px;
-        }
-        @media (max-width: 860px) {
-            .lore-gallery-wrap {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-            gap: 16px;
-        }
-        .gallery-item {
-            aspect-ratio: 1 / 1;
-            background: rgba(255, 255, 255, 0.04);
-            border-radius: 16px;
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.8rem;
-            color: var(--text-soft);
-            transition: 0.25s;
-            background-size: cover;
-            background-position: center;
-            text-shadow: 0 2px 12px rgba(0, 0, 0, 0.8);
-            font-weight: 500;
-            padding: 8px;
-            text-align: center;
-        }
-        .gallery-item:hover {
-            border-color: var(--neon-cyan);
-            box-shadow: var(--glow-cyan);
-            transform: scale(1.02);
-        }
-        .gallery-item .placeholder-icon {
-            font-size: 2.4rem;
-            opacity: 0.5;
-        }
-
-        .lore-snippets {
-            padding: 24px 24px 28px;
-            background: rgba(255, 255, 255, 0.02);
+        .gallery-card {
+            background: rgba(255, 255, 255, 0.03);
             backdrop-filter: blur(8px);
             -webkit-backdrop-filter: blur(8px);
             border: 1px solid rgba(255, 255, 255, 0.06);
-            border-radius: var(--radius);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: 0.3s;
         }
-        .lore-snippets h3 {
-            font-size: 1.6rem;
-            margin-bottom: 16px;
-            background: linear-gradient(135deg, var(--neon-pink), var(--neon-purple));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
+        .gallery-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(0, 240, 255, 0.3);
+            box-shadow: var(--glow-cyan), 0 12px 40px rgba(0, 0, 0, 0.6);
         }
-        .lore-snippet {
-            padding: 16px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+        .gallery-card img {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            display: block;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
         }
-        .lore-snippet:last-child {
-            border-bottom: none;
+        .gallery-card .card-info {
+            padding: 16px 18px 20px;
         }
-        .lore-snippet .snippet-title {
-            font-weight: 600;
-            font-size: 1.05rem;
+        .gallery-card .card-info h4 {
+            font-size: 1.1rem;
             color: #fff;
+            margin-bottom: 4px;
         }
-        .lore-snippet .snippet-excerpt {
+        .gallery-card .card-info p {
             color: var(--text-soft);
-            font-size: 0.95rem;
-            margin: 4px 0 8px;
-        }
-        .lore-snippet .snippet-link {
             font-size: 0.9rem;
-            color: var(--neon-cyan);
+            margin: 0;
+        }
+        .gallery-card .card-info .placeholder-text {
+            color: var(--text-soft);
+            font-size: 0.85rem;
+            opacity: 0.6;
+            font-style: italic;
         }
 
         /* ----- FOOTER ----- */
@@ -479,7 +230,7 @@
             text-shadow: var(--glow-cyan);
         }
 
-        /* ----- RESPONSIVE TWEAKS ----- */
+        /* ----- RESPONSIVE ----- */
         @media (max-width: 640px) {
             header {
                 flex-direction: column;
@@ -491,20 +242,12 @@
                 justify-content: center;
                 flex-wrap: wrap;
             }
-            .hero {
-                padding: 40px 20px 36px;
-            }
-            .hero h1 {
-                font-size: 2.4rem;
-            }
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-            .filter-tabs {
-                justify-content: center;
-            }
             .section-title {
                 font-size: 1.7rem;
+            }
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+                gap: 16px;
             }
             footer {
                 flex-direction: column;
@@ -515,167 +258,319 @@
                 text-align: center;
             }
         }
+
+        /* ----- LOADING & ERROR ----- */
+        .loading-text, .error-text {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--text-soft);
+            font-size: 1.2rem;
+        }
+        .error-text {
+            color: var(--neon-pink);
+        }
+        .loading-text::after {
+            content: '...';
+            animation: dots 1.5s steps(4, end) infinite;
+        }
+        @keyframes dots {
+            0% { content: ''; }
+            25% { content: '.'; }
+            50% { content: '..'; }
+            75% { content: '...'; }
+        }
     </style>
 </head>
-    <div id="gallery-container" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px;">
-  Loading art collection...
+<body>
+<div class="container">
+
+    <!-- ===== HEADER ===== -->
+    <header>
+        <div class="logo">2KAYSTUDIO 
+            <span>where storytelling and game technology converge.</span>
+        </div>
+        <nav>
+            <a href="index.html" data-key="nav-home">Home</a>
+            <a href="projects.html" data-key="nav-projects">Projects</a>
+            <a href="shop.html" data-key="nav-shop">Shop</a>
+            <a href="events.html" data-key="nav-events">Events</a>
+            <a href="lore.html" data-key="nav-lore">Lore</a>
+            <a href="gallery.html" data-key="nav-gallery">Gallery</a>
+            <a href="lab.html" data-key="nav-lab">2KAY LAB</a>
+            <a href="about.html" data-key="nav-about">About</a>
+        </nav>
+        <select class="lang-switcher" id="langSwitcher">
+            <option value="en">🇬🇧 English</option>
+            <option value="vi">🇻🇳 Tiếng Việt</option>
+            <option value="zh">🇨🇳 中文</option>
+            <option value="ja">🇯🇵 日本語</option>
+            <option value="ru">🇷🇺 Русский</option>
+            <option value="es">🇪🇸 Español</option>
+        </select>
+    </header>
+
+    <!-- ===== GALLERY SECTION ===== -->
+    <section id="gallery">
+        <h2 class="section-title" data-key="gallery-title">Gallery & Artworks</h2>
+        <div id="gallery-grid" class="gallery-grid">
+            <div class="loading-text" data-key="gallery-loading">Loading art collection</div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="social-links">
+            <a href="https://x.com/2kaystudio">🐦 Twitter/X</a>
+            <a href="https://discord.gg/e8jV2uRnZ">💬 Discord</a>
+            <a href="https://2kaystudioofficial.itch.io">🎮 Itch.io</a>
+            <a href="https://www.youtube.com/@2KAY_STUDIO">🕹️ Youtube</a>
+            <a href="https://archiveofourown.org/users/Sam_Anthos/pseuds/Sam_Anthos">📚 AO3</a>
+            <a href="https://www.newgrounds.com/portal/view/1040822">💀 Newgrounds</a>
+            <a href="https://www.indiedb.com/members/2kaystudio">📦 IndieDB</a>
+            <a href="https://gamejolt.com/@2kaystudio">👾 GameJolt</a>
+            <a href="https://www.moddb.com/games/wandering-relics-horror-visual-novel">🛠️ ModDB</a>
+        </div>
+        <div class="copy">
+            © 2026 2KAY STUDIO. All rights reserved. All works are the intellectual property of the Studio.
+        </div>
+    </footer>
 </div>
 
 <script>
-  async function loadGallery() {
-    const container = document.getElementById('gallery-container');
-    try {
-      const response = await fetch('https://api.github.com/repos/bngocchau93-commits/2kay-official/contents/_gallery');
-      if (!response.ok) throw new Error('Unable to load the gallery.');
-      const files = await response.json();
-      
-      container.innerHTML = '';
-      
-      for (const file of files) {
-        const resDetail = await fetch(file.download_url);
-        const content = await resDetail.text();
-        const matches = content.match(/---([\s\S]*?)---/);
-        
-        if (matches) {
-          const lines = matches[1].split('\n');
-          const info = {};
-          lines.forEach(line => {
-            const [key, ...val] = line.split(':');
-            if (key) info[key.trim()] = val.join(':').trim();
-          });
-
-          // Normalize image paths stored by Sveltia CMS.u
-          let imgUrl = info.image ? info.image.replace(/^["']|["']$/g, '') : '';
-          if (imgUrl && !imgUrl.startsWith('http')) {
-            imgUrl = `./${imgUrl}`; 
-          }
-
-          const artCard = document.createElement('div');
-          artCard.className = 'gallery-item';
-          artCard.innerHTML = `
-            <img src="${imgUrl}" alt="${info.title}" style="width:100%; border-radius:8px; object-fit:cover;">
-            <h4>${info.title || 'Artwork'}</h4>
-            <p><small>${info.description || ''}</small></p>
-          `;
-          container.appendChild(artCard);
+    // ==============================
+    // 1. MULTILANGUAGE
+    // ==============================
+    const translations = {
+        en: {
+            "nav-home": "Home",
+            "nav-projects": "Projects",
+            "nav-shop": "Shop",
+            "nav-events": "Events",
+            "nav-lore": "Lore",
+            "nav-gallery": "Gallery",
+            "nav-lab": "2KAY LAB",
+            "nav-about": "About",
+            "gallery-title": "Gallery & Artworks",
+            "gallery-loading": "Loading art collection",
+            "gallery-error": "Oops! Could not load the gallery. Please try again later.",
+            "gallery-empty": "No artworks found yet. Check back soon!"
+        },
+        vi: {
+            "nav-home": "Trang Chủ",
+            "nav-projects": "Dự Án",
+            "nav-shop": "Cửa Hàng",
+            "nav-events": "Sự Kiện",
+            "nav-lore": "Cốt Truyện",
+            "nav-gallery": "Thư Viện Ảnh",
+            "nav-lab": "2KAY LAB",
+            "nav-about": "Về Chúng Tôi",
+            "gallery-title": "Thư Viện Ảnh & Tác Phẩm",
+            "gallery-loading": "Đang tải bộ sưu tập nghệ thuật",
+            "gallery-error": "Rất tiếc! Không thể tải thư viện ảnh. Vui lòng thử lại sau.",
+            "gallery-empty": "Chưa có tác phẩm nào. Hãy quay lại sau nhé!"
+        },
+        zh: {
+            "nav-home": "首页",
+            "nav-projects": "项目",
+            "nav-shop": "商店",
+            "nav-events": "活动",
+            "nav-lore": "故事",
+            "nav-gallery": "画廊",
+            "nav-lab": "2KAY 实验室",
+            "nav-about": "关于",
+            "gallery-title": "画廊与艺术作品",
+            "gallery-loading": "正在加载艺术收藏",
+            "gallery-error": "哎呀！无法加载画廊。请稍后再试。",
+            "gallery-empty": "暂无艺术作品。敬请期待！"
+        },
+        ja: {
+            "nav-home": "ホーム",
+            "nav-projects": "プロジェクト",
+            "nav-shop": "ショップ",
+            "nav-events": "イベント",
+            "nav-lore": "ロア",
+            "nav-gallery": "ギャラリー",
+            "nav-lab": "2KAY LAB",
+            "nav-about": "私たちについて",
+            "gallery-title": "ギャラリー＆アートワーク",
+            "gallery-loading": "アートコレクションを読み込み中",
+            "gallery-error": "おっと！ギャラリーを読み込めませんでした。後でもう一度お試しください。",
+            "gallery-empty": "まだアートワークはありません。また後でチェックしてください！"
+        },
+        ru: {
+            "nav-home": "Главная",
+            "nav-projects": "Проекты",
+            "nav-shop": "Магазин",
+            "nav-events": "События",
+            "nav-lore": "Лор",
+            "nav-gallery": "Галерея",
+            "nav-lab": "2KAY LAB",
+            "nav-about": "О нас",
+            "gallery-title": "Галерея и Произведения",
+            "gallery-loading": "Загрузка коллекции",
+            "gallery-error": "Упс! Не удалось загрузить галерею. Пожалуйста, попробуйте позже.",
+            "gallery-empty": "Произведений пока нет. Загляните позже!"
+        },
+        es: {
+            "nav-home": "Inicio",
+            "nav-projects": "Proyectos",
+            "nav-shop": "Tienda",
+            "nav-events": "Eventos",
+            "nav-lore": "Lore",
+            "nav-gallery": "Galería",
+            "nav-lab": "2KAY LAB",
+            "nav-about": "Sobre Nosotros",
+            "gallery-title": "Galería y Obras de Arte",
+            "gallery-loading": "Cargando colección de arte",
+            "gallery-error": "¡Uy! No se pudo cargar la galería. Por favor, inténtalo de nuevo más tarde.",
+            "gallery-empty": "Aún no hay obras de arte. ¡Vuelve pronto!"
         }
-      }
-    } catch (error) {
-      container.innerHTML = 'There's an error loading the image, Boss! QwQ';
-    }
-  }
-  document.addEventListener('DOMContentLoaded', loadGallery);
-</script>
-<body>
-    <div class="container">
+    };
 
-        <!-- ===== HEADER ===== -->
-        <header>
-            <div class="logo">2KAYSTUDIO 
-            <span>where storytelling and game technology converge.</span></div>
-
-            <nav>
-                <a href="index.html" data-key="nav-home">Home</a>
-                <a href="projects.html" data-key="nav-projects">Projects</a>
-                <a href="shop.html" data-key="nav-shop">Shop</a>
-                <a href="events.html" data-key="nav-events">Events</a>
-                <a href="lore.html" data-key="nav-lore">Lore</a>
-                <a href="gallery.html" data-key="nav-gallery">Gallery</a>
-                <a href="lab.html" data-key="nav-lab">2KAY LAB</a>
-                <a href="about.html" data-key="nav-about">About</a>
-           </nav>
-                <!-- Language Switcher -->
-                <select class="lang-switcher" id="langSwitcher">
-                    <option value="en">🇬🇧 English</option>
-                    <option value="vi">🇻🇳 Tiếng Việt</option>
-                    <option value="zh">🇨🇳 中文</option>
-                    <option value="ja">🇯🇵 日本語</option>
-                    <option value="ru">🇷🇺 Русский</option>
-                    <option value="es">🇪🇸 Español</option>
-                </select>
-          </header>
-        <section id="gallery" class="section">
-            <div class="container">
-                <h2 class="section-title" data-key="gallery">Gallery</h2>
-                
-                <div class="gallery-grid">
-                    <div class="gallery-item" style="background-image: url('assets/img1.jpg');"><span>Art 1</span></div>
-                    <div class="gallery-item" style="background-image: url('assets/img2.jpg');"><span>Art 2</span></div>
-                    <div class="gallery-item" style="background-image: url('assets/img3.jpg');"><span>Art 3</span></div>
-                    <div class="gallery-item" style="background-image: url('assets/img4.jpg');"><span>Art 4</span></div>
-                </div>
-            </div>
-        </section>
-<footer id="footer">
-    <div class="social-links">
-        <a href="https://x.com/2kaystudio">🐦 Twitter/X</a>
-        <a href="https://discord.gg/e8jV2uRnZ">💬 Discord</a>
-        <a href="https://2kaystudioofficial.itch.io">🎮 Itch.io</a>
-        <a href="https://www.youtube.com/@2KAY_STUDIO">🕹️ Youtube</a>
-        <a href="https://archiveofourown.org/users/Sam_Anthos/pseuds/Sam_Anthos">📚 AO3</a>
-        <a href="https://www.newgrounds.com/portal/view/1040822">💀 Newgrounds</a>
-        <a href="https://www.indiedb.com/members/2kaystudio">📦 IndieDB</a>
-        <a href="https://gamejolt.com/@2kaystudio">👾 GameJolt</a>
-        <a href="https://www.moddb.com/games/wandering-relics-horror-visual-novel">🛠️ ModDB</a>
-    </div>
-    <div class="copy">
-        © 2026 2KAY STUDIO. All rights reserved. All works are the intellectual property of the Studio.
-    </div>
-</footer>
-     <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        
-        // ----------------------------------------------------
-        // 1. Langs
-        // ----------------------------------------------------
-        const translations = {
-            en: { "nav-home": "Home", "nav-projects": "Projects", "nav-shop": "Shop", "nav-events": "Events", "nav-lore": "Lore","nav-gallery": "Gallery", "nav-about": "About Us", "filter-all": "All", "filter-released": "AVAILABLE", "filter-dev": "UNDER DEVELOPMENT" },
-            vi: { "nav-home": "Trang Chủ", "nav-projects": "Dự Án", "nav-shop": "Cửa Hàng", "nav-events": "Sự Kiện", "nav-lore": "Cốt Truyện","nav-gallery": "Thư viện ảnh", "nav-about": "Về Chúng Tôi", "filter-all": "Tất Cả", "filter-released": "ĐÃ PHÁT HÀNH", "filter-dev": "ĐANG PHÁT TRIỂN" },
-            zh: { "nav-home": "首页", "nav-projects": "项目", "nav-shop": "商店", "nav-events": "活动", "nav-lore": "故事","nav-gallery": "图库", "nav-about": "关于我们", "filter-all": "全部", "filter-released": "现已推出", "filter-dev": "开发中" },
-            ja: { "nav-home": "ホーム", "nav-projects": "プロジェクト", "nav-shop": "ショップ", "nav-events": "イベント", "nav-lore": "ロア","nav-gallery": "ギャラリー", "nav-about": "私たちについて", "filter-all": "すべて", "filter-released": "配信中", "filter-dev": "開発中" },
-            ru: { "nav-home": "Главная", "nav-projects": "Проекты", "nav-shop": "Магазин", "nav-events": "События", "nav-lore": "Лор","nav-gallery": "Галерея", "nav-about": "О нас", "filter-all": "Все", "filter-released": "ДОСТУПНО", "filter-dev": "В РАЗРАБОТКЕ" },
-            es: { "nav-home": "Inicio", "nav-projects": "Proyectos", "nav-shop": "Tienda", "nav-events": "Eventos", "nav-lore": "Lore","nav-gallery": "Galería", "nav-about": "Sobre Nosotros", "filter-all": "Todo", "filter-released": "DISPONIBLE", "filter-dev": "EN DESARROLLO" }
-        };
-
-        // Important: Automatically assign an ID to the select tag if it doesn't already have one.
-        let langSelect = document.querySelector('select.language-dropdown') || document.querySelector('select');
-        if(langSelect && !langSelect.id) langSelect.id = 'langSwitcher';
-
-        if(langSelect) {
-            langSelect.addEventListener('change', function(e) {
-                const lang = e.target.value;
-                document.querySelectorAll('[data-key]').forEach(el => {
-                    const key = el.getAttribute('data-key');
-                    if (translations[lang] && translations[lang][key]) {
-                        el.textContent = translations[lang][key];
-                    }
-                });
-            });
-        }
-
-        // ----------------------------------------------------
-        // 2. FILTER TABS
-        // ----------------------------------------------------
-        const filterBtns = document.querySelectorAll('.filter-tab');
-        const projects = document.querySelectorAll('.project-card');
-
-        filterBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                // Delete the old activation, activate the new activation
-                filterBtns.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-
-                // Filter tabs
-                const filterValue = btn.getAttribute('data-filter');
-                projects.forEach(card => {
-                    const status = card.getAttribute('data-status');
-                    if (filterValue === 'all' || filterValue === status) {
-                        card.style.display = ''; // show again 
-                    } else {
-                        card.style.display = 'none'; // hide
-                    }
-                });
-            });
+    function applyTranslations(lang) {
+        const dict = translations[lang];
+        if (!dict) return;
+        document.querySelectorAll('[data-key]').forEach(el => {
+            const key = el.getAttribute('data-key');
+            if (dict[key] !== undefined) {
+                el.textContent = dict[key];
+            }
         });
+    }
+
+    // ==============================
+    // 2. LOAD GALLERY FROM GITHUB
+    // ==============================
+    async function loadGallery() {
+        const container = document.getElementById('gallery-grid');
+        const repo = 'bngocchau93-commits/2kay-official';
+        const folder = '_gallery';
+        const baseRawUrl = `https://raw.githubusercontent.com/${repo}/main/${folder}/`;
+
+        try {
+            // Fetch list of files in _gallery folder
+            const apiUrl = `https://api.github.com/repos/${repo}/contents/${folder}`;
+            const response = await fetch(apiUrl);
+
+            if (!response.ok) {
+                throw new Error(`HTTP ${response.status}`);
+            }
+
+            const files = await response.json();
+
+            // Filter only .md files (Sveltia CMS saves as .md)
+            const mdFiles = files.filter(file => file.name.endsWith('.md'));
+
+            if (mdFiles.length === 0) {
+                container.innerHTML = `<p class="error-text" data-key="gallery-empty">No artworks found yet. Check back soon!</p>`;
+                applyTranslations(document.getElementById('langSwitcher')?.value || 'en');
+                return;
+            }
+
+            let cardsHtml = '';
+
+            for (const file of mdFiles) {
+                try {
+                    // Fetch the content of each .md file
+                    const contentRes = await fetch(file.download_url);
+                    const content = await contentRes.text();
+
+                    // Parse frontmatter (--- ... ---)
+                    const frontmatterMatch = content.match(/^---\s*([\s\S]*?)\s*---/);
+                    if (!frontmatterMatch) continue;
+
+                    const frontmatter = frontmatterMatch[1];
+                    const lines = frontmatter.split('\n');
+                    const info = {};
+                    lines.forEach(line => {
+                        const colonIndex = line.indexOf(':');
+                        if (colonIndex > 0) {
+                            const key = line.substring(0, colonIndex).trim();
+                            let value = line.substring(colonIndex + 1).trim();
+                            // Remove quotes if present
+                            value = value.replace(/^["']|["']$/g, '');
+                            info[key] = value;
+                        }
+                    });
+
+                    const title = info.title || 'Untitled';
+                    const description = info.description || '';
+                    let imagePath = info.image || '';
+
+                    // Build image URL
+                    let imageUrl = '';
+                    if (imagePath) {
+                        // If it's a relative path, prepend the raw base URL
+                        if (!imagePath.startsWith('http') && !imagePath.startsWith('//')) {
+                            // Remove leading ./ or / if present
+                            imagePath = imagePath.replace(/^\.?\//, '');
+                            imageUrl = `${baseRawUrl}${imagePath}`;
+                        } else {
+                            imageUrl = imagePath;
+                        }
+                    }
+
+                    // Fallback placeholder if no image
+                    if (!imageUrl) {
+                        imageUrl = ''; // will show placeholder text
+                    }
+
+                    cardsHtml += `
+                        <div class="gallery-card">
+                            ${imageUrl ? `<img src="${imageUrl}" alt="${title}" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">` : ''}
+                            <div class="card-info">
+                                <h4>${title}</h4>
+                                ${description ? `<p>${description}</p>` : `<p class="placeholder-text">No description</p>`}
+                                ${!imageUrl ? `<p class="placeholder-text" style="margin-top:8px;">🖼️ No image uploaded yet</p>` : ''}
+                            </div>
+                        </div>
+                    `;
+                } catch (err) {
+                    console.warn('Error loading file:', file.name, err);
+                    // Skip this file, continue with others
+                }
+            }
+
+            if (cardsHtml) {
+                container.innerHTML = cardsHtml;
+            } else {
+                container.innerHTML = `<p class="error-text" data-key="gallery-empty">No artworks found yet. Check back soon!</p>`;
+                applyTranslations(document.getElementById('langSwitcher')?.value || 'en');
+            }
+
+        } catch (error) {
+            console.error('Gallery load error:', error);
+            container.innerHTML = `<p class="error-text" data-key="gallery-error">Oops! Could not load the gallery. Please try again later.</p>`;
+            applyTranslations(document.getElementById('langSwitcher')?.value || 'en');
+        }
+
+        // Apply translations after loading
+        const currentLang = document.getElementById('langSwitcher')?.value || 'en';
+        applyTranslations(currentLang);
+    }
+
+    // ==============================
+    // 3. INITIALIZATION
+    // ==============================
+    document.addEventListener('DOMContentLoaded', function() {
+        // Language switcher
+        const switcher = document.getElementById('langSwitcher');
+        if (switcher) {
+            // Set default from localStorage if available
+            const savedLang = localStorage.getItem('preferredLang') || 'en';
+            switcher.value = savedLang;
+            applyTranslations(savedLang);
+
+            switcher.addEventListener('change', function(e) {
+                const lang = e.target.value;
+                localStorage.setItem('preferredLang', lang);
+                applyTranslations(lang);
+            });
+        }
+
+        // Load gallery
+        loadGallery();
     });
 </script>
+</body>
+</html>
