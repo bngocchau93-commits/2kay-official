@@ -517,6 +517,55 @@
         }
     </style>
 </head>
+    <div id="gallery-container" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px;">
+  Loading art collection...
+</div>
+
+<script>
+  async function loadGallery() {
+    const container = document.getElementById('gallery-container');
+    try {
+      const response = await fetch('https://api.github.com/repos/bngocchau93-commits/2kay-official/contents/_gallery');
+      if (!response.ok) throw new Error('Unable to load the gallery.');
+      const files = await response.json();
+      
+      container.innerHTML = '';
+      
+      for (const file of files) {
+        const resDetail = await fetch(file.download_url);
+        const content = await resDetail.text();
+        const matches = content.match(/---([\s\S]*?)---/);
+        
+        if (matches) {
+          const lines = matches[1].split('\n');
+          const info = {};
+          lines.forEach(line => {
+            const [key, ...val] = line.split(':');
+            if (key) info[key.trim()] = val.join(':').trim();
+          });
+
+          // Normalize image paths stored by Sveltia CMS.u
+          let imgUrl = info.image ? info.image.replace(/^["']|["']$/g, '') : '';
+          if (imgUrl && !imgUrl.startsWith('http')) {
+            imgUrl = `./${imgUrl}`; 
+          }
+
+          const artCard = document.createElement('div');
+          artCard.className = 'gallery-item';
+          artCard.innerHTML = `
+            <img src="${imgUrl}" alt="${info.title}" style="width:100%; border-radius:8px; object-fit:cover;">
+            <h4>${info.title || 'Artwork'}</h4>
+            <p><small>${info.description || ''}</small></p>
+          `;
+          container.appendChild(artCard);
+        }
+      }
+    } catch (error) {
+      container.innerHTML = 'There's an error loading the image, Boss! QwQ';
+    }
+  }
+  document.addEventListener('DOMContentLoaded', loadGallery);
+</script>
 <body>
     <div class="container">
 
