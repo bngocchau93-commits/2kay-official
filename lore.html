@@ -6,6 +6,58 @@
     <title>Lore & Gallery — 2KAY STUDIO</title>
     <link rel="stylesheet" href="style.css" />
 </head>
+    <div id="lore-container">Loading personal stories....</div>
+<script>
+  async function loadLore() {
+    const container = document.getElementById('lore-container');
+    try {
+      // 1. Call the GitHub API to retrieve the list of files in the _posts directory.
+      const response = await fetch('https://api.github.com/repos/bngocchau93-commits/2kay-official/contents/_posts');
+      if (!response.ok) throw new Error('Unable to load data');
+      const files = await response.json();
+      
+      container.innerHTML = ''; // Clear "Loading" text
+      
+      // 2. Browse through each article file to retrieve detailed content.
+      for (const file of files) {
+        if (file.name.endsWith('.md') || file.name.endsWith('.html')) {
+          const resDetail = await fetch(file.download_url);
+          const content = await resDetail.text();
+          
+          // Separate the information section (frontmatter) at the beginning of the article file.
+          const matches = content.match(/---([\s\S]*?)---/);
+          if (matches) {
+            const lines = matches[1].split('\n');
+            const info = {};
+            lines.forEach(line => {
+              const [key, ...val] = line.split(':');
+              if (key) info[key.trim()] = val.join(':').trim();
+            });
+            
+            //Extract the article content following the mark ---
+            const bodyText = content.replace(/---[\s\S]*?---/, '').trim();
+
+            // 3. Render the article into a beautiful layout.
+            const postCard = document.createElement('div');
+            postCard.className = 'lore-card'; // You can apply your own CSS to this class.
+            postCard.innerHTML = `
+              <h3>${info.title || 'Untitled Post'}</h3>
+              <p><small>Date posted: ${info.date || ''} | Author: ${info.author || 'Sam'}</small></p>
+              <div class="lore-body">${bodyText.substring(0, 200)}...</div>
+              ${info.link ? `<a href="${info.link}" target="_blank">Read more at</a>` : ''}
+            `;
+            container.appendChild(postCard);
+          }
+        }
+      }
+    } catch (error) {
+      container.innerHTML = 'An error occurred while loading the post, Boss! 😢';
+      console.error(error);
+    }
+  }
+  // Trigger a function on page load
+  document.addEventListener('DOMContentLoaded', loadLore);
+</script>
 <body>
 <div class="container">
     <header>
