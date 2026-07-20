@@ -27,10 +27,16 @@ collections:
     create: true
     slug: "art-{{fields.title}}"
     fields:
-      - { label: "Artwork Title (For example: Art 5)", name: "title", widget: "string" }
+      - { label: "Artwork Title (Vi du: Art 5)", name: "title", widget: "string" }
       - { label: "Upload Image", name: "image", widget: "image" }
+      # ---  PROJECT ---
+      - { 
+          label: "Project", 
+          name: "project", 
+          widget: "select", 
+          options: ["Wandering Relics", "PJ 02", "PJ 03"] 
+        }
       - { label: "Artist Description", name: "description", widget: "text", required: false }
-
   # --- SECTION 3: EVENT MANAGEMENT ---
   - name: "events"
     label: "Events & Broadcasts"
