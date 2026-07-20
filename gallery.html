@@ -6,11 +6,7 @@
     <title>2KAY STUDIO — Gallery</title>
     <style>
         /* ----- RESET & BASE ----- */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
             --bg-dark: #0a0a0f;
@@ -27,9 +23,7 @@
             --font-sans: 'Segoe UI', system-ui, -apple-system, sans-serif;
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
+        html { scroll-behavior: smooth; }
 
         body {
             background: var(--bg-dark);
@@ -42,21 +36,10 @@
             padding: 0 20px;
         }
 
-        a {
-            color: var(--neon-cyan);
-            text-decoration: none;
-            transition: color 0.25s;
-        }
-        a:hover {
-            color: var(--neon-pink);
-            text-shadow: var(--glow-pink);
-        }
+        a { color: var(--neon-cyan); text-decoration: none; transition: color 0.25s; }
+        a:hover { color: var(--neon-pink); text-shadow: var(--glow-pink); }
 
-        .container {
-            max-width: 1360px;
-            margin: 0 auto;
-            padding: 16px 0 40px;
-        }
+        .container { max-width: 1360px; margin: 0 auto; padding: 16px 0 40px; }
 
         /* ----- HEADER ----- */
         header {
@@ -68,7 +51,6 @@
             margin-bottom: 40px;
             background: rgba(10, 10, 15, 0.7);
             backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.06);
             border-radius: 40px;
             gap: 12px;
@@ -84,14 +66,7 @@
             color: transparent;
             text-shadow: 0 0 30px rgba(0, 240, 255, 0.2);
         }
-        .logo span {
-            font-weight: 300;
-            color: var(--text-soft);
-            background: none;
-            -webkit-background-clip: unset;
-            background-clip: unset;
-            text-shadow: none;
-        }
+        .logo span { font-weight: 300; color: var(--text-soft); background: none; }
 
         nav {
             display: flex;
@@ -107,10 +82,7 @@
             border-bottom: 2px solid transparent;
             transition: 0.25s;
         }
-        nav a:hover {
-            color: var(--text-white);
-            border-bottom-color: var(--neon-cyan);
-        }
+        nav a:hover { color: var(--text-white); border-bottom-color: var(--neon-cyan); }
 
         .lang-switcher {
             background: rgba(255, 255, 255, 0.06);
@@ -124,15 +96,8 @@
             font-weight: 500;
             backdrop-filter: blur(4px);
         }
-        .lang-switcher:hover {
-            background: rgba(0, 240, 255, 0.1);
-            border-color: var(--neon-cyan);
-            color: #fff;
-        }
-        .lang-switcher option {
-            background: #1a1a2e;
-            color: #f0f0f8;
-        }
+        .lang-switcher:hover { background: rgba(0, 240, 255, 0.1); border-color: var(--neon-cyan); color: #fff; }
+        .lang-switcher option { background: #1a1a2e; color: #f0f0f8; }
 
         /* ----- SECTION TITLE ----- */
         .section-title {
@@ -148,6 +113,34 @@
             padding-left: 20px;
         }
 
+        /* ----- FILTER TABS ----- */
+        .filter-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 32px;
+        }
+        .filter-tab {
+            padding: 10px 28px;
+            border-radius: 40px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: var(--text-soft);
+            font-weight: 500;
+            cursor: pointer;
+            transition: 0.25s;
+            font-size: 0.95rem;
+            backdrop-filter: blur(4px);
+        }
+        .filter-tab:hover { background: rgba(0, 240, 255, 0.08); color: #fff; }
+        .filter-tab.active {
+            background: var(--neon-cyan);
+            color: #0a0a0f;
+            border-color: var(--neon-cyan);
+            box-shadow: var(--glow-cyan);
+            font-weight: 600;
+        }
+
         /* ----- GALLERY GRID ----- */
         .gallery-grid {
             display: grid;
@@ -159,12 +152,12 @@
         .gallery-card {
             background: rgba(255, 255, 255, 0.03);
             backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
             border: 1px solid rgba(255, 255, 255, 0.06);
             border-radius: 20px;
             overflow: hidden;
             transition: 0.3s;
         }
+        .gallery-card.hidden { display: none; }
         .gallery-card:hover {
             transform: translateY(-6px);
             border-color: rgba(0, 240, 255, 0.3);
@@ -177,25 +170,10 @@
             display: block;
             border-bottom: 1px solid rgba(255, 255, 255, 0.06);
         }
-        .gallery-card .card-info {
-            padding: 16px 18px 20px;
-        }
-        .gallery-card .card-info h4 {
-            font-size: 1.1rem;
-            color: #fff;
-            margin-bottom: 4px;
-        }
-        .gallery-card .card-info p {
-            color: var(--text-soft);
-            font-size: 0.9rem;
-            margin: 0;
-        }
-        .gallery-card .card-info .placeholder-text {
-            color: var(--text-soft);
-            font-size: 0.85rem;
-            opacity: 0.6;
-            font-style: italic;
-        }
+        .gallery-card .card-info { padding: 16px 18px 20px; }
+        .gallery-card .card-info h4 { font-size: 1.1rem; color: #fff; margin-bottom: 4px; }
+        .gallery-card .card-info p { color: var(--text-soft); font-size: 0.9rem; margin: 0; }
+        .gallery-card .card-info .placeholder-text { color: var(--text-soft); font-size: 0.85rem; opacity: 0.6; font-style: italic; }
 
         /* ----- FOOTER ----- */
         footer {
@@ -211,74 +189,24 @@
             backdrop-filter: blur(8px);
             border-radius: 40px 40px 20px 20px;
         }
-        footer .copy {
-            color: var(--text-soft);
-            font-size: 0.9rem;
-        }
-        .social-links {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 16px 24px;
-        }
-        .social-links a {
-            font-weight: 500;
-            color: var(--text-soft);
-            transition: 0.2s;
-        }
-        .social-links a:hover {
-            color: var(--neon-cyan);
-            text-shadow: var(--glow-cyan);
-        }
+        footer .copy { color: var(--text-soft); font-size: 0.9rem; }
+        .social-links { display: flex; flex-wrap: wrap; gap: 16px 24px; }
+        .social-links a { font-weight: 500; color: var(--text-soft); transition: 0.2s; }
+        .social-links a:hover { color: var(--neon-cyan); text-shadow: var(--glow-cyan); }
 
-        /* ----- RESPONSIVE ----- */
         @media (max-width: 640px) {
-            header {
-                flex-direction: column;
-                align-items: stretch;
-                gap: 14px;
-                padding: 18px 20px;
-            }
-            nav {
-                justify-content: center;
-                flex-wrap: wrap;
-            }
-            .section-title {
-                font-size: 1.7rem;
-            }
-            .gallery-grid {
-                grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-                gap: 16px;
-            }
-            footer {
-                flex-direction: column;
-                text-align: center;
-            }
-            .lang-switcher {
-                width: 100%;
-                text-align: center;
-            }
+            header { flex-direction: column; align-items: stretch; gap: 14px; padding: 18px 20px; }
+            nav { justify-content: center; flex-wrap: wrap; }
+            .section-title { font-size: 1.7rem; }
+            .gallery-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 16px; }
+            footer { flex-direction: column; text-align: center; }
+            .lang-switcher { width: 100%; text-align: center; }
         }
 
-        /* ----- LOADING & ERROR ----- */
-        .loading-text, .error-text {
-            text-align: center;
-            padding: 60px 20px;
-            color: var(--text-soft);
-            font-size: 1.2rem;
-        }
-        .error-text {
-            color: var(--neon-pink);
-        }
-        .loading-text::after {
-            content: '...';
-            animation: dots 1.5s steps(4, end) infinite;
-        }
-        @keyframes dots {
-            0% { content: ''; }
-            25% { content: '.'; }
-            50% { content: '..'; }
-            75% { content: '...'; }
-        }
+        .loading-text, .error-text { text-align: center; padding: 60px 20px; color: var(--text-soft); font-size: 1.2rem; }
+        .error-text { color: var(--neon-pink); }
+        .loading-text::after { content: '...'; animation: dots 1.5s steps(4, end) infinite; }
+        @keyframes dots { 0% { content: ''; } 25% { content: '.'; } 50% { content: '..'; } 75% { content: '...'; } }
     </style>
 </head>
 <body>
@@ -286,9 +214,7 @@
 
     <!-- ===== HEADER ===== -->
     <header>
-        <div class="logo">2KAYSTUDIO 
-            <span>where storytelling and game technology converge.</span>
-        </div>
+        <div class="logo">2KAYSTUDIO <span>where storytelling and game technology converge.</span></div>
         <nav>
             <a href="index.html" data-key="nav-home">Home</a>
             <a href="projects.html" data-key="nav-projects">Projects</a>
@@ -301,7 +227,6 @@
         </nav>
         <select class="lang-switcher" id="langSwitcher">
             <option value="en">🇬🇧 English</option>
-            <option value="vi">🇻🇳 Tiếng Việt</option>
             <option value="zh">🇨🇳 中文</option>
             <option value="ja">🇯🇵 日本語</option>
             <option value="ru">🇷🇺 Русский</option>
@@ -312,6 +237,15 @@
     <!-- ===== GALLERY SECTION ===== -->
     <section id="gallery">
         <h2 class="section-title" data-key="gallery-title">Gallery & Artworks</h2>
+
+        <!-- FILTER TABS -->
+        <div class="filter-tabs" id="galleryFilterTabs">
+            <button class="filter-tab active" data-filter="all">📂 All Projects</button>
+            <button class="filter-tab" data-filter="Mrs. Ann's House">🏠 Mrs. Ann's House</button>
+            <button class="filter-tab" data-filter="Game PJ02">🎮 PJ02</button>
+            <button class="filter-tab" data-filter="Common Studio Art">🎨 Common Studio Art</button>
+        </div>
+
         <div id="gallery-grid" class="gallery-grid">
             <div class="loading-text" data-key="gallery-loading">Loading art collection</div>
         </div>
@@ -330,9 +264,7 @@
             <a href="https://gamejolt.com/@2kaystudio">👾 GameJolt</a>
             <a href="https://www.moddb.com/games/wandering-relics-horror-visual-novel">🛠️ ModDB</a>
         </div>
-        <div class="copy">
-            © 2026 2KAY STUDIO. All rights reserved. All works are the intellectual property of the Studio.
-        </div>
+        <div class="copy">© 2026 2KAY STUDIO. All rights reserved. All works are the intellectual property of the Studio.</div>
     </footer>
 </div>
 
@@ -355,20 +287,7 @@
             "gallery-error": "Oops! Could not load the gallery. Please try again later.",
             "gallery-empty": "No artworks found yet. Check back soon!"
         },
-        vi: {
-            "nav-home": "Trang Chủ",
-            "nav-projects": "Dự Án",
-            "nav-shop": "Cửa Hàng",
-            "nav-events": "Sự Kiện",
-            "nav-lore": "Cốt Truyện",
-            "nav-gallery": "Thư Viện Ảnh",
-            "nav-lab": "2KAY LAB",
-            "nav-about": "Về Chúng Tôi",
-            "gallery-title": "Thư Viện Ảnh & Tác Phẩm",
-            "gallery-loading": "Đang tải bộ sưu tập nghệ thuật",
-            "gallery-error": "Rất tiếc! Không thể tải thư viện ảnh. Vui lòng thử lại sau.",
-            "gallery-empty": "Chưa có tác phẩm nào. Hãy quay lại sau nhé!"
-        },
+        
         zh: {
             "nav-home": "首页",
             "nav-projects": "项目",
@@ -441,14 +360,15 @@
     // ==============================
     // 2. LOAD GALLERY FROM GITHUB
     // ==============================
+    let allArtworks = []; // Save all to filter
+
     async function loadGallery() {
         const container = document.getElementById('gallery-grid');
         const repo = 'bngocchau93-commits/2kay-official';
         const folder = '_gallery';
-        const baseRawUrl = `https://raw.githubusercontent.com/${repo}/main/${folder}/`;
+        const baseRawUrl = `https://raw.githubusercontent.com/${repo}/main/`;
 
         try {
-            // Fetch list of files in _gallery folder
             const apiUrl = `https://api.github.com/repos/${repo}/contents/${folder}`;
             const response = await fetch(apiUrl);
 
@@ -457,8 +377,6 @@
             }
 
             const files = await response.json();
-
-            // Filter only .md files (Sveltia CMS saves as .md)
             const mdFiles = files.filter(file => file.name.endsWith('.md'));
 
             if (mdFiles.length === 0) {
@@ -468,14 +386,13 @@
             }
 
             let cardsHtml = '';
+            allArtworks = [];
 
             for (const file of mdFiles) {
                 try {
-                    // Fetch the content of each .md file
                     const contentRes = await fetch(file.download_url);
                     const content = await contentRes.text();
 
-                    // Parse frontmatter (--- ... ---)
                     const frontmatterMatch = content.match(/^---\s*([\s\S]*?)\s*---/);
                     if (!frontmatterMatch) continue;
 
@@ -487,7 +404,6 @@
                         if (colonIndex > 0) {
                             const key = line.substring(0, colonIndex).trim();
                             let value = line.substring(colonIndex + 1).trim();
-                            // Remove quotes if present
                             value = value.replace(/^["']|["']$/g, '');
                             info[key] = value;
                         }
@@ -495,51 +411,55 @@
 
                     const title = info.title || 'Untitled';
                     const description = info.description || '';
+                    const project = info.project || 'Uncategorized';
                     let imagePath = info.image || '';
 
-                    // BUILD IMAGE URL 
+                    // BUILD IMAGE URL
                     let imageUrl = '';
                     if (imagePath) {
-                       // If the path starts with `/assets/` → use the repo's raw URL; do NOT add `_gallery/`.
-                       if (imagePath.startsWith('/assets/') || imagePath.startsWith('assets/')) {
-                           // Retrieve from the root assets directory.
-                           const cleanPath = imagePath.replace(/^\/?/, '');
-                           imageUrl = `https://raw.githubusercontent.com/${repo}/main/${cleanPath}`;
-                       } 
-                       // If it is a full http link → use it as is.
-                       else if (imagePath.startsWith('http')) {
-                           imageUrl = imagePath;
-                       }
-                       // If it's a different path → try in _gallery
-                       else {
-                           const cleanPath = imagePath.replace(/^\.?\//, '');
-                           imageUrl = `${baseRawUrl}${cleanPath}`;
-                       }
+                        let cleanPath = imagePath.replace(/^\/?/, '');
+                        if (cleanPath.startsWith('http://') || cleanPath.startsWith('https://')) {
+                            imageUrl = cleanPath;
+                        } else if (cleanPath.includes('assets/')) {
+                            imageUrl = `https://raw.githubusercontent.com/${repo}/main/${cleanPath}`;
+                        } else {
+                            imageUrl = `https://raw.githubusercontent.com/${repo}/main/assets/${cleanPath}`;
+                        }
                     }
 
-                    // Fallback placeholder if no image
-                    if (!imageUrl) {
-                        imageUrl = ''; // will show placeholder text
-                    }
-
-                    cardsHtml += `
-                        <div class="gallery-card">
-                            ${imageUrl ? `<img src="${imageUrl}" alt="${title}" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">` : ''}
-                            <div class="card-info">
-                                <h4>${title}</h4>
-                                ${description ? `<p>${description}</p>` : `<p class="placeholder-text">No description</p>`}
-                                ${!imageUrl ? `<p class="placeholder-text" style="margin-top:8px;">🖼️ No image uploaded yet</p>` : ''}
+                    // Save to an array for later filtering.
+                    allArtworks.push({
+                        title,
+                        description,
+                        project,
+                        imageUrl,
+                        html: `
+                            <div class="gallery-card" data-project="${project}">
+                                ${imageUrl ? `<img src="${imageUrl}" alt="${title}" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">` : ''}
+                                <div class="card-info">
+                                    <h4>${title}</h4>
+                                    <div style="display: flex; gap: 8px; flex-wrap: wrap; margin: 6px 0 8px;">
+                                        <span style="background: rgba(0, 240, 255, 0.15); color: var(--neon-cyan); padding: 2px 12px; border-radius: 20px; font-size: 0.75rem; border: 1px solid rgba(0, 240, 255, 0.2);">
+                                            📁 ${project}
+                                        </span>
+                                    </div>
+                                    ${description ? `<p>${description}</p>` : `<p class="placeholder-text">No description</p>`}
+                                    ${!imageUrl ? `<p class="placeholder-text" style="margin-top:8px;">🖼️ No image uploaded yet</p>` : ''}
+                                </div>
                             </div>
-                        </div>
-                    `;
+                        `
+                    });
+
                 } catch (err) {
                     console.warn('Error loading file:', file.name, err);
-                    // Skip this file, continue with others
                 }
             }
 
-            if (cardsHtml) {
-                container.innerHTML = cardsHtml;
+            if (allArtworks.length > 0) {
+                // Render all
+                container.innerHTML = allArtworks.map(item => item.html).join('');
+                // Apply default filter (all)
+                filterGallery('all');
             } else {
                 container.innerHTML = `<p class="error-text" data-key="gallery-empty">No artworks found yet. Check back soon!</p>`;
                 applyTranslations(document.getElementById('langSwitcher')?.value || 'en');
@@ -551,19 +471,40 @@
             applyTranslations(document.getElementById('langSwitcher')?.value || 'en');
         }
 
-        // Apply translations after loading
         const currentLang = document.getElementById('langSwitcher')?.value || 'en';
         applyTranslations(currentLang);
     }
 
     // ==============================
-    // 3. INITIALIZATION
+    // 3. FILTER GALLERY BY PROJECT
+    // ==============================
+    function filterGallery(project) {
+        const cards = document.querySelectorAll('.gallery-card');
+        cards.forEach(card => {
+            const cardProject = card.getAttribute('data-project') || 'Uncategorized';
+            if (project === 'all' || cardProject === project) {
+                card.classList.remove('hidden');
+            } else {
+                card.classList.add('hidden');
+            }
+        });
+
+        // Update the active class for tabs.
+        document.querySelectorAll('#galleryFilterTabs .filter-tab').forEach(tab => {
+            tab.classList.remove('active');
+            if (tab.getAttribute('data-filter') === project) {
+                tab.classList.add('active');
+            }
+        });
+    }
+
+    // ==============================
+    // 4. INITIALIZATION
     // ==============================
     document.addEventListener('DOMContentLoaded', function() {
         // Language switcher
         const switcher = document.getElementById('langSwitcher');
         if (switcher) {
-            // Set default from localStorage if available
             const savedLang = localStorage.getItem('preferredLang') || 'en';
             switcher.value = savedLang;
             applyTranslations(savedLang);
@@ -577,6 +518,14 @@
 
         // Load gallery
         loadGallery();
+
+        // Filter tabs event
+        document.querySelectorAll('#galleryFilterTabs .filter-tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                const filterValue = this.getAttribute('data-filter');
+                filterGallery(filterValue);
+            });
+        });
     });
 </script>
 </body>
