@@ -497,17 +497,24 @@
                     const description = info.description || '';
                     let imagePath = info.image || '';
 
-                    // Build image URL
+                    // BUILD IMAGE URL 
                     let imageUrl = '';
                     if (imagePath) {
-                        // If it's a relative path, prepend the raw base URL
-                        if (!imagePath.startsWith('http') && !imagePath.startsWith('//')) {
-                            // Remove leading ./ or / if present
-                            imagePath = imagePath.replace(/^\.?\//, '');
-                            imageUrl = `${baseRawUrl}${imagePath}`;
-                        } else {
-                            imageUrl = imagePath;
-                        }
+                       // If the path starts with `/assets/` → use the repo's raw URL; do NOT add `_gallery/`.
+                       if (imagePath.startsWith('/assets/') || imagePath.startsWith('assets/')) {
+                           // Retrieve from the root assets directory.
+                           const cleanPath = imagePath.replace(/^\/?/, '');
+                           imageUrl = `https://raw.githubusercontent.com/${repo}/main/${cleanPath}`;
+                       } 
+                       // If it is a full http link → use it as is.
+                       else if (imagePath.startsWith('http')) {
+                           imageUrl = imagePath;
+                       }
+                       // If it's a different path → try in _gallery
+                       else {
+                           const cleanPath = imagePath.replace(/^\.?\//, '');
+                           imageUrl = `${baseRawUrl}${cleanPath}`;
+                       }
                     }
 
                     // Fallback placeholder if no image
